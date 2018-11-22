@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/skin/layer.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/goods-group.css?v=2.0.32" rel="stylesheet">
+</head>
+
+<body>
+	<input type="hidden" name="nav-active" value="05">
+	<input type="hidden" name="menu-active" value="0504">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+				<a class="btn btn-default selected">商品分组</a>
+				<!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<div class="user-container">
+				<button type="button" class="btn btn-success" id="add">+添加商品分组</button>
+				<table class="table table-striped table-bordered table-hover user-table" id="table">
+					<thead>
+						<tr>
+							<th>名称</th>
+							<th>是否展示</th>
+							<th>展示顺序</th>
+							<th>操作</th>
+						</tr>
+						<tbody id="table-body"></tbody>
+					</thead>
+				</table>
+				<div id="pager"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header head">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h2>商品分组</h2>
+				</div>
+				<div class="modal-body">
+					<div class="operation-money">
+						<span class="span-title">名称：</span>
+						<input maxlength="100" class="form-control options" id="group_name" />
+					</div>
+					<div class="operation-money">
+						<span class="span-title">展示顺序：</span>
+						<input maxlength="4" class="form-control options" id="group_sort" />
+					</div>
+					<div class="operation-money">
+						<span class="span-title">简述：</span>
+						<textarea maxlength="200" class="form-control options" id="group_info" style="margin: 0px; width: 397px; height: 54px; text-align:left;"></textarea>
+						<!-- <input  maxlength="120" class="form-control options" id="group_info" /> -->
+					</div>
+					<div class="operation-money">
+						<span class="span-title">商品列表：</span>
+						<select class="form-control options" id="goods_list"></select>
+						</select>
+						<button type="button" class="btn btn-success addSpuGoods" id="addSpuGoods">添加</button>
+					</div>
+					<div id="skuTable"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" id="btn_save">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/goods-group.js?v=2.0.32"></script>
+
+	</script>
+</body>
+
+</html>

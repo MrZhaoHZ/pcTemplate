@@ -1,0 +1,33 @@
+{
+  "code": 10000,
+  "msg": "请求处理成功",
+  "data": {
+      "data": [
+          {   "category_name": "分类名称",
+              "category_sort": 1,
+              "category_id": 3
+          },
+          {   "category_name": "分类名称",
+              "category_sort": 1,
+              "category_id": 3
+          },
+          {   "category_name": "分类名称",
+              "category_sort": 1,
+              "category_id": 3
+          },
+          {   "category_name": "分类名称",
+              "category_sort": 1,
+              "category_id": 3
+          },
+          {   "category_name": "分类名称",
+              "category_sort": 1,
+              "category_id": 3
+          },
+          {   "category_name": "分类名称",
+              "category_sort": 1,
+              "category_id": 3
+          }
+      ],
+      "total_count": 133
+  }
+}

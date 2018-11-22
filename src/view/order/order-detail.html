@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/jquery-ztree/3.5.12/css/zTreeStyle/zTreeStyle.min.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/css/order-detail.css?v=@version" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="06">
+<input type="hidden" name="menu-active" value="0601">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+		<!-- <ul>
+			<li class="active"><a href="agency-list.html" data-id="1">代理商列表</a></li>
+			<li><a href="department.html" data-id="2">部门管理</a></li>
+			<li><a href="employee.html" data-id="3">员工管理</a></li>
+			<li><a href="role-management.html" data-id="4">角色管理</a></li>
+		</ul> -->
+	</div>
+	<div class="right-bar">
+		<div class="btn-group nav-select">
+		  <a type="button" class="btn btn-default selected" href="javascript:void(0);">订单详情</a>
+		</div>
+		<br><br>
+		<div class="order-info-container" id="order-info-container">
+<!-- 			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">订单编号：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>20161206262125357</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">下单时间：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>2016-12-06 17:43:01</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">发货类型：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>上级发货</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">订单状态：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>待上级审单</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">收货地址：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>浙江省杭州市拱墅区丰潭路380号银泰城E座8楼</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">收件人：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>浙江</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">联系电话：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>13556773753737</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">上级：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>上级</span>
+			  </div>
+			</div>
+			<div class="form-inline">
+			  <div class="form-group">
+			    <p class="form-control-static">团队：</p>
+			  </div>
+			  <div class="form-group">
+			    <span>团队</span>
+			  </div>
+			</div>
+			<table class="table table-bordered tab-content-center item-detail-table">
+			  <thead>
+				<tr>
+				  <th>商品</th>
+				  <th>价格</th>
+				  <th>数量</th>
+				  <th>商品总价</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <td>
+				  	<img src="@static_path/temp/images/price.png" alt="">
+				  	<span>商品名称商品名称商品名称</span>
+				  </td>
+				  <td>￥49.00</td>
+				  <td>138</td>
+				  <td>￥99999.99</td>
+				</tr>
+				<tr>
+				  <td colspan="4" class="total-info">
+				  	<span>运费：￥0.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单金额：￥490.00</span>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+			<div class="order-flow">
+				<span>订单流程</span>
+				<table class="table table-bordered tab-content-center">
+				  <thead>
+					<tr>
+					  <th>等级</th>
+					  <th>姓名</th>
+					  <th>处理时间</th>
+					  <th>备注</th>
+					  <th>状态</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td>XXX</td>
+					  <td>XXX</td>
+					  <td>2016-09-12 16:52:16</td>
+					  <td>总部审核通过</td>
+					  <td>待发货</td>
+					</tr>
+					<tr>
+					  <td>XXX</td>
+					  <td>XXX</td>
+					  <td>2016-09-12 16:52:16</td>
+					  <td>总部审核通过</td>
+					  <td>待发货</td>
+					</tr>
+				  </tbody>
+				</table>
+			</div>
+			<div class="express-info">
+				<span>物流信息</span>
+				<table class="table table-bordered">
+				  <tbody>
+					<tr>
+					  <td>物流公司：顺丰速递</td>
+					</tr>
+					<tr>
+					  <td>物流单号：420315989602</td>
+					</tr>
+					<tr>
+					  <td>备注：</td>
+					</tr>
+					<tr>
+					  <td class="express-his">
+						  <div>物流跟踪：</div>
+						  <div>
+						  	<p>2016-11-16 10:55:05 已签收</p>
+						  	<p>2016-11-16 10:55:05 已签收</p>
+						  </div>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+			</div> -->
+		</div>
+	</div>
+</div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/libs/jquery-ztree/3.5.12/js/jquery.ztree.core-3.5.min.js"></script>
+<script src="@static_path/libs/jquery-ztree/3.5.12/js/jquery.ztree.excheck-3.5.min.js"></script>
+<script src="@static_path/libs/jquery-ztree/3.5.12/js/jquery.ztree.exedit-3.5.min.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_path/bundle/order-detail.js?v=@version"></script>
+</body>
+</html>

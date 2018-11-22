@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/css/agent-intention-management.css?v=@version" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="03">
+<input type="hidden" name="menu-active" value="0306">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a type="button" class="btn btn-default selected" href="javascript:void(0)" data-id="">全部</a>
+		  <a type="button" class="btn btn-default" href="javascript:void(0)" data-id="0">待联系</a>
+		  <a type="button" class="btn btn-default" href="javascript:void(0)" data-id="1">联系</a>
+		  <a type="button" class="btn btn-default" href="javascript:void(0)" data-id="2">未联系</a>
+		  <a type="button" class="btn btn-default" href="javascript:void(0)" data-id="3">合作</a>
+		  <a type="button" class="btn btn-default" href="javascript:void(0)" data-id="4">未合作</a>
+		</div>
+		<br>
+		<br>
+		<div class="form-inline middle-condition">
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="姓名" id="real_name">
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="手机号" id="mobile">
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="微信号" id="wechat_id">
+		  </div>
+		  <div class="form-group">
+			<select class="form-control" id="agent_grade">
+			  <!-- <option>所有等级</option> -->
+			</select>
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="开始时间" id="start_time">
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="结束时间" id="end_time">
+		  </div>
+		</div>
+		<div class="form-inline middle-condition">
+		  <div class="form-group">
+			<select class="form-control" id="status">
+			  <option value="">全部</option>
+			  <option value="0">待联系</option>
+			  <option value="1">联系</option>
+			  <option value="2">未联系</option>
+			  <option value="3">合作</option>
+			  <option value="4">未合作</option>
+			</select>
+		  </div>
+		  <div class="form-group inline-btn">
+			<button type="button" class="btn btn-success" id="filter-btn">查询</button>
+		  </div>
+		  <div class="form-group">
+			<select class="form-control" id="exports-select">
+			  <option value="1">导出全部</option>
+			  <option value="0">导出当前页</option>
+			</select>
+		  </div>
+		  <div class="form-group inline-btn">
+			<button type="button" class="btn btn-success" id="exports-btn">导出</button>
+		  </div>
+		</div>
+		<table class="table table-bordered" id="table-container">
+		  <!-- <thead>
+			<tr>
+			  <th>姓名</th>
+			  <th>手机</th>
+			  <th>微信号</th>
+			  <th>意向等级</th>
+			  <th>状态</th>
+			  <th>时间</th>
+			  <th>操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr data-id="">
+			  <td>石头</td>
+			  <td>官方</td>
+			  <td>点击查看</td>
+			  <td>3</td>
+			  <td>点击查看</td>
+			  <td>2016-11-17 22:04:39</td>
+			  <td><a href="">通过</a>&nbsp;<a href="">拒绝</a>&nbsp;<a href="">详情</a></td>
+			</tr>
+		  </tbody> -->
+		</table>
+		<div id="nodata-tips" style="display: none;padding: 50px;text-align: center;">暂无数据</div>
+		<div id="pager"></div>
+	</div>
+</div>
+
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/libs/jquery.ui/jquery-ui.min.js"></script>
+<script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+<script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_path/bundle/agent-intention-management.js?v=@version"></script>
+</body>
+</html>

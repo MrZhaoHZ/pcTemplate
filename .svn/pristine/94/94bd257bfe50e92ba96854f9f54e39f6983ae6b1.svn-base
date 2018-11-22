@@ -1,0 +1,14 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 0,
+        "name": "姓名",
+        "level": "级别"
+      }
+    ],
+    "totalCount": 1
+  }
+}

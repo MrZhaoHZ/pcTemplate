@@ -1,0 +1,21 @@
+{
+    "code": 10000,
+    "msg": "请求处理成功",
+    "data": {
+        "key_world": "keyWorld",
+        "status": "1",
+        "text_reply": "content",
+        "img_text": [
+            {
+                "title": "title",
+                "info": "info",
+                "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488532…c=http%3A%2F%2Fpic.58pic.com%2F58pic%2F15%2F39%2F85%2F74C58PICgy4_1024.jpg"
+            },
+            {
+                "title": "title",
+                "info": "info",
+                "img": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488532…c=http%3A%2F%2Fpic.58pic.com%2F58pic%2F15%2F39%2F85%2F74C58PICgy4_1024.jpg"
+            }
+        ]
+    }
+}

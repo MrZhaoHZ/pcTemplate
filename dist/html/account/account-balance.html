@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/account-balance.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/skin/layer.css" type="text/css">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="04">
+	<input type="hidden" name="menu-active" value="0401">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <a class="btn btn-default selected" href="account-balance.html">余额流水</a>
+			  <!-- <a type="button" class="btn btn-default" href="role-management.html">角色管理</a> -->
+			  <!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<div class="user-container">
+				<form class="search-key">
+					<select class="form-control user-input" id="page">
+					  <option value ="1">导出全部</option>
+					  <option value ="0">导出当前页</option>
+					</select>
+				</form>
+				<button type="button" class="btn btn-success" id="searcher">导出</button>
+				
+				<table class="table table-striped table-bordered table-hover user-table" id="table" >
+				  <thead>
+				  	<tr>
+					    <th>姓名</th>
+					    <th>级别</th>
+					    <th>变动金额</th>
+					    <th>变动后金额</th>
+					    <th>类型</th>
+					    <th>操作时间</th>
+					    <th>备注</th>
+					</tr>
+					<tbody id="table-body"></tbody>
+				  </thead>
+				</table>
+				<div id="pager"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">代理商-<span id="adjustUserName"></span>-当前余额（<span id="adjustCurrentBalance"></span>）</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="operation-type">
+	        	<span class="span-title">调整类型：</span>
+	        	<select class="form-control options" id="">
+				  <option value ="0">增加</option>
+				  <option value ="1">减少</option>
+				</select>
+	        </div>
+	        <div class="operation-money">
+	        	<span class="span-title">调整金额：</span>
+	        	<input class="form-control options"/>
+	        </div>
+	        <div class="operation-reason">
+	        	<span class="span-title">调整金额：</span>
+	        	<textarea class="form-control input-reason"></textarea>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/account-balance.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+</body>
+</html>

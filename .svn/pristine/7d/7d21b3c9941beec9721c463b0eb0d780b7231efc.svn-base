@@ -1,0 +1,49 @@
+{
+  "code": 10000,
+  "msg": "请求处理成功",
+  "data": {
+      "data": [
+          {   "name": "fjc",
+              "level": "督导",
+              "superior": "总部",
+              "change_money": "200.00",
+              "type": "普通充值",
+              "money": "5200.00",
+              "balance": 0
+          },
+          {   "name": "fjc",
+              "level": "督导",
+              "superior": "总部",
+              "change_money": "200.00",
+              "type": "普通充值",
+              "money": "5200.00",
+              "balance": 0
+          },
+          {   "name": "fjc",
+              "level": "督导",
+              "superior": "总部",
+              "change_money": "200.00",
+              "type": "普通充值",
+              "money": "5200.00",
+              "balance": 0
+          },
+          {   "name": "fjc",
+              "level": "督导",
+              "superior": "总部",
+              "change_money": "200.00",
+              "type": "普通充值",
+              "money": "5200.00",
+              "balance": 0
+          },
+          {   "name": "fjc",
+              "level": "督导",
+              "superior": "总部",
+              "change_money": "200.00",
+              "type": "普通充值",
+              "money": "5200.00",
+              "balance": 0
+          }
+      ],
+      "total_count": 133
+  }
+}

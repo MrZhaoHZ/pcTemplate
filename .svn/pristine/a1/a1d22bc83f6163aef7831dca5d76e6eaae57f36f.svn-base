@@ -1,0 +1,49 @@
+.right-bar {
+	// padding: 15px 0 0 15px;
+	.btn-group {
+		.btn {
+			border-radius: 0;
+		}
+	}
+	.nav-select {
+		// margin: 15px 0 0 15px;
+		.selected {
+			border-bottom: none;
+		}
+	}
+	.user-container {
+		margin-top: 18px;
+		ul{
+			margin-top: 18px;
+			li{
+				overflow: hidden;
+				margin: 30px;
+				.span-left{
+					float: left;
+					display: inline-block;
+					width: 250px;
+					text-align: right;
+				}
+				.input-long{
+					width: 250px;
+				}
+				.input-height{
+					height: 130px;
+				}
+				.input-short{
+					width: 134px;
+					margin-right: 10px;
+					display: inline-block;
+				}
+			}
+		}
+	}
+	.next-div{
+		padding: 15px;
+		background-color: #D7D7D7;
+		text-align: center;
+		.btn-save{
+			margin: 10px;
+		}
+	}
+}

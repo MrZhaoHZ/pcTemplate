@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/account-recharge-detail.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/skin/layer.css" type="text/css">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="04">
+	<input type="hidden" name="menu-active" value="0403">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <a class="btn btn-default selected" href="account-recharge-detail.html">充值审核详情</a>
+			  <!-- <a type="button" class="btn btn-default" href="role-management.html">角色管理</a> -->
+			  <!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<div class="user-container">
+				<p>
+					<span class="span-left">姓名：</span><span class="span-right" id="detail_name"></span>
+					<span class="span-left">昵称：</span class="span-right"><span class="span-right" id="detail_nick_name"></span>
+				</p>
+				<p>
+					<span class="span-left">手机号码：</span><span class="span-right" id="detail_phone"></span>
+					<span class="span-left">账户余额：</span><span class="span-right" id="detail_balance"></span>
+				</p>
+				<p>
+					<span class="span-left">直属上级：</span><span class="span-right" id="detail_superior"></span>
+					<span class="span-left">充值金额：</span><span class="span-right" id="detail_money"></span>
+				</p>
+				<p class="no-border">
+					<span class="span-left">状态：</span><span class="span-right" id="detail_status"></span>
+				</p>
+				<table class="table table-striped table-bordered table-hover user-table" id="table" >
+				  <caption>审核流程</caption>
+				  <thead>
+				  	<tr>
+					    <th>姓名</th>
+					    <th>处理时间</th>
+					    <th>备注</th>
+					    <th>状态</th>
+					</tr>
+					<tbody id="table-body"></tbody>
+				  </thead>
+				</table>
+			</div>
+		</div>
+	</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/account-recharge-detail.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+</body>
+</html>

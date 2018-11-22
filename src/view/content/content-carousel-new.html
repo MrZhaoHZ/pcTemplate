@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link href="@static_2_path/css/content-article-edit.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/layer/skin/layer.css" type="text/css">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="08">
+	<input type="hidden" name="menu-active" value="0805">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <a class="btn btn-default selected" href="content-article-edit.html">轮播图设置</a>
+			  <!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<form class="user-container">
+				
+				<ul>
+					<li>
+						<span class="span-left">名称：</span>
+						<input maxlength="20" type="text" id="title" class="form-control input-long" />
+					</li>
+					<li>
+						<span class="span-left">图片：</span>
+						<input id="upImg" type="text" class="form-control input-long" />
+						<span class="span-prompt">建议750*350</span>
+					</li>
+					<li>
+						<span class="span-left">链接地址：</span>
+						<input maxlength="200" type="text" id="link" class="form-control input-long" />
+					</li>
+					<li>
+						<span class="span-left">排序：</span>
+						<input type="text" id="sort" class="form-control input-long" />
+					</li>
+				</ul>
+			</form>
+			<div class="next-div">
+				<button type="button" class="btn btn-success btn-save" id="save">保存</button>
+				<button type="button" class="btn btn-success btn-save" id="cancel">取消</button>
+			</div>
+		</div>
+	</div>
+	<div id="img-select-modal-container"></div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_2_path/bundle/content-carousel-new.js?v=@version"></script>
+<script src="@static_path/libs/webuploader-0.1.5/webuploader.min.js"></script>
+</body>
+</html>

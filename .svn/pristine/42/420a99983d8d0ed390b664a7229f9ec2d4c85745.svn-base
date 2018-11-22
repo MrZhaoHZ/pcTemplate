@@ -1,0 +1,100 @@
+.right-bar {
+	// padding: 15px 0 0 15px;
+	.btn-group {
+		.btn {
+			border-radius: 0;
+		}
+	}
+	.nav-select {
+		// margin: 15px 0 0 15px;
+		.selected {
+			border-bottom: none;
+			border-bottom: none;
+		}
+	}
+	.user-container {
+		margin-top: 18px;
+		.add_attr_box{
+			overflow: hidden;
+			.add{
+				float: left;
+			    margin-right: 20px;
+			    line-height: 28px;
+			}
+			.add_attr{
+				float: left;
+			}
+			.options{
+				float: left;
+				display: inline-bolck;
+				width: 134px;
+				margin-right : 20px;
+			}
+			.add_row{
+				float: right;
+			}
+		}
+		.tab-content-center{
+			margin-top: 10px;
+		}
+		.user-table{
+			margin: 18px 15px 18px 0;
+			tr{
+				vertical-align: middle;
+				text-align: center;
+				td{
+					vertical-align: middle;
+					img{
+						width: 50px;
+					}
+					
+				}
+				.add_img_symbol{
+					cursor: pointer;
+				}
+			}
+			.goods_code{
+				width: 100px;
+			}
+			.add_th{
+				position: relative;
+				.dele_th{
+					position: absolute;
+					top: 4px;
+					right:4px;
+					color: red;
+				    border: 1px solid red;
+				    border-radius: 22px;
+				    display: inline-block;
+				    width: 20px;
+				    height: 20px;
+				    font-size: 14px;
+				    cursor: pointer;
+				}
+			}
+			th{
+			    vertical-align: middle;
+				text-align: center;
+				background-color: #d7d7d7;
+			}
+			a{
+				cursor: pointer;
+			}
+		}
+	}
+}
+.sku_save{
+	margin-left: 50%;
+}
+.min_width{
+    width: 90px;
+}
+.spu_name_box{
+    height: 42px;
+}
+.add_img_dom{
+    cursor: pointer;
+}
+.padLess{
+	margin:0 5px;
+}

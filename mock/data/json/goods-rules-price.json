@@ -1,0 +1,139 @@
+{
+    "msg": "成功", 
+    "code": "10000", 
+    "success": true, 
+    "data": [
+        {
+            "spu_id": 94, 
+            "spu_name": "测试1", 
+            "item_price_rule_v_o_list": [
+                {
+                    "sku_sn": "yyz001", 
+                    "image_uri": "1168681499243136336.jpg", 
+                    "deliver_type": 1, 
+                    "specs": "红色,4", 
+                    "is_add": false, 
+                    "sku_id": 244, 
+                    "spu_id": 94, 
+                    "unit": "1", 
+                    "price_rule_v_o_s": [
+                        {
+                            "price": "87.0", 
+                            "agent_grade": 1, 
+                            "sku_id": 244
+                        }, 
+                        {
+                            "price": "333.0", 
+                            "agent_grade": 2, 
+                            "sku_id": 244
+                        }, 
+                        {
+                            "price": "4444.0", 
+                            "agent_grade": 3, 
+                            "sku_id": 244
+                        }, 
+                        {
+                            "price": "41.0", 
+                            "agent_grade": 4, 
+                            "sku_id": 244
+                        }, 
+                        {
+                            "price": "51.0", 
+                            "agent_grade": 5, 
+                            "sku_id": 244
+                        }
+                    ]
+                }, 
+                {
+                    "sku_sn": "yyz002", 
+                    "image_uri": "1168551498015547035.jpg", 
+                    "deliver_type": 2, 
+                    "specs": "蓝色,5", 
+                    "is_add": false, 
+                    "sku_id": 245, 
+                    "spu_id": 94, 
+                    "unit": "2", 
+                    "price_rule_v_o_s": [
+                        {
+                            "price": "13.0", 
+                            "agent_grade": 1, 
+                            "sku_id": 245
+                        }, 
+                        {
+                            "price": "233.0", 
+                            "agent_grade": 2, 
+                            "sku_id": 245
+                        }, 
+                        {
+                            "price": "33.0", 
+                            "agent_grade": 3, 
+                            "sku_id": 245
+                        }, 
+                        {
+                            "price": "44.0", 
+                            "agent_grade": 4, 
+                            "sku_id": 245
+                        }, 
+                        {
+                            "price": "5544.0", 
+                            "agent_grade": 5, 
+                            "sku_id": 245
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "spu_id": 97, 
+            "spu_name": "测试2", 
+            "item_price_rule_v_o_list": [
+                {
+                    "sku_sn": "yyz003", 
+                    "image_uri": "1169611502096964468.jpg", 
+                    "deliver_type": 1, 
+                    "specs": "小,23", 
+                    "is_add": true, 
+                    "sku_id": 251, 
+                    "spu_id": 97, 
+                    "unit": "1"
+                }, 
+                {
+                    "sku_sn": "yyz004", 
+                    "image_uri": "1169611502096964468.jpg", 
+                    "deliver_type": 1, 
+                    "specs": "大,23", 
+                    "is_add": true, 
+                    "sku_id": 252, 
+                    "spu_id": 97, 
+                    "unit": "1"
+                }
+            ]
+        }, 
+        {
+            "spu_id": 98, 
+            "spu_name": "测试1——复制", 
+            "item_price_rule_v_o_list": [
+                {
+                    "sku_sn": "让他与他人", 
+                    "image_uri": "1169601502937769938.jpg", 
+                    "deliver_type": 2, 
+                    "specs": "蓝色,2,45", 
+                    "is_add": true, 
+                    "sku_id": 256, 
+                    "spu_id": 98, 
+                    "unit": "2"
+                }, 
+                {
+                    "sku_sn": "还让他", 
+                    "image_uri": "1168811501062141353.jpg", 
+                    "deliver_type": 1, 
+                    "specs": "红色,3,43", 
+                    "is_add": true, 
+                    "sku_id": 255, 
+                    "spu_id": 98, 
+                    "unit": "1"
+                }
+            ]
+        }
+    ]
+}

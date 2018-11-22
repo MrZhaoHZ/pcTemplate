@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css"> -->
+	<!-- <link rel="stylesheet" href="@static_path/libs/jquery-ztree/3.5.12/css/zTreeStyle/zTreeStyle.min.css" type="text/css"> -->
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<!-- <link href="@static_path/css/agent-list.css?v=@version" rel="stylesheet"> -->
+</head>
+<body>
+<input type="hidden" name="nav-active" value="02">
+<!-- <input type="hidden" name="menu-active" value="0301"> -->
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar">
+		
+	</div>
+</div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<!-- <script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script> -->
+<!-- <script src="@static_path/libs/layer/layer.js"></script> -->
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<!-- <script src="@static_path/bundle/agent-cate.js?v=@version"></script> -->
+</body>
+</html>

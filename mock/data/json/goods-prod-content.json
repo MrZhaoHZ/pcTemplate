@@ -1,0 +1,24 @@
+{
+    "msg": "成功", 
+    "code": "10000", 
+    "success": true, 
+    "data": {
+        "total_counts": 1, 
+        "item_spu_d_t_os": [
+            {
+                "spu_name": "韩束", 
+                "image_uri": "20171116170046254.jpg", 
+                "item_status": 1, 
+                "category_id": 60, 
+                "invalid": 0, 
+                "remarks": "韩束测试商品", 
+                "category_name": "韩束", 
+                "id": 103, 
+                "creator": 48, 
+                "updator": 49, 
+                "create_date": "2017-11-16 16:14:26", 
+                "update_date": "2017-11-17 11:02:55"
+            }
+        ]
+    }
+}

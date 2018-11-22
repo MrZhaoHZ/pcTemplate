@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/department-detail.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="09">
+<input type="hidden" name="menu-active" value="0902">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+		<!-- <ul>
+			<li class="active"><a href="agency-list.html" data-id="1">代理商列表</a></li>
+			<li><a href="department.html" data-id="2">部门管理</a></li>
+			<li><a href="employee.html" data-id="3">员工管理</a></li>
+			<li><a href="role-management.html" data-id="4">角色管理</a></li>
+		</ul> -->
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a type="button" class="btn btn-default selected" href="javascript:void(0)">部门详情</a>
+		</div>
+		<br>
+		<br>
+		<div class="dep-info">
+			<table class="table table-bordered" id="table-container">
+			  <tbody>
+				<tr data-id="">
+				  <td style="width: 15%;">部门名称：</td>
+				  <td colspan="3"><input type="text" id="dep-name"></td>
+				</tr>
+				<tr data-id="" style="display: none;">
+				  <td>部门描述：</td>
+				  <td><input type="text"></td>
+				</tr>
+				<tr data-id="" style="display: none;">
+				  <td>人数：</td>
+				  <td><input type="text"></td>
+				</tr>
+				<tr data-id="">
+				  <td>操作：</td>
+				  <td><a href="javascript:void(0);" style="display: none;">删除</a><a href="javascript:void(0);" id="save-dep">保存</a></td>
+				</tr>
+			  </tbody>
+			</table>
+			<div style="display: none;">人员构成：</div>
+			<table class="table table-bordered" id="table-container" style="display: none;">
+			  <thead>
+				<tr>
+				  <th><input type="checkbox" class="select-all"></th>
+				  <th>姓名</th>
+				  <th>性别</th>
+				  <th>部门</th>
+				  <th>用户身份</th>
+				  <th>状态</th>
+				  <th>操作</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr data-id="">
+				  <td><input type="checkbox" name="selectItem"></td>
+				  <td>某某</td>
+				  <td>男</td>
+				  <td>市场部</td>
+				  <td>操作员</td>
+				  <td>在职</td>
+				  <td><a href="">通过</a>&nbsp;<a href="">拒绝</a>&nbsp;<a href="">详情</a></td>
+				</tr>
+			  </tbody>
+			</table>
+		</div>
+		<div style="display: none;">
+			<button type="button" class="btn btn-success">批量删除</button>
+			<div id="pager"></div>
+		</div>
+	</div>
+</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/department-detail.js?v=2.0.32"></script>
+</body>
+</html>

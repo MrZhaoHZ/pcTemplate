@@ -1,0 +1,16 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+  			"id": 3,
+      	"type": 4,
+        "name": "所有等级",
+        "info": "infoinfoinfoinfo",
+        
+        "data_max": 44,// 数值型才返回的数据
+        "data_min": 33,// 数值型才返回的数据
+        
+        "enumeration_string": "空格跟开枚举"// 枚举型 才返回的数据
+  },
+  "success": true
+}

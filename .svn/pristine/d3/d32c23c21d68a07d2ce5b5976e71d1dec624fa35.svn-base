@@ -1,0 +1,594 @@
+/*
+ * @Author: Jing 
+ * @Date: 2018-01-23 11:55:38 
+ * @Last Modified by: Jing
+ * @Last Modified time: 2018-05-17 10:02:28
+ */
+$(function () {
+    var self_tpl = require('../../module/tpl/activity-set-tpl');
+    var $ajax = require('../../common/ajax.js');
+    var api_path_config = require('../../../../tmp_path_config.js');
+    var imgUpload = require('../../common/img-upload.js');
+    var httpURL = require('../../common/http-url.js');
+    var activity_id = "";
+    var len = "";
+    var drainageState, drawState = "";
+    //选项卡样式
+    // $('#nav-select').delegate('.btn', 'click', function () {
+    //     $(this).siblings('.btn').removeClass('selected');
+    //     $(this).addClass('selected');
+    // });
+
+    //时间选项
+    var timepickerCfg = {
+        minInterval: (1000 * 60),
+        showSecond: true,
+        timeFormat: 'HH:mm:ss',
+        start: {
+            //开始时间
+            minDate: new Date()
+        },
+        end: {
+            //结束时间
+            //new Date()
+        }
+    };
+    $.timepicker.datetimeRange(
+        $('#exhibitionStart_time'),
+        $('#exhibitionEnd_time'),
+        timepickerCfg
+    );
+    // $.timepicker.datetimeRange(
+    //     $('#orderStart_time'),
+    //     $('#orderEnd_time'),
+    //     timepickerCfg
+    // );
+
+  
+    //点击下一步事件
+    var pram={};
+    $("body").on("click", "#next", function () {
+        //获取表数据与校验
+        pram.act_name = $("#activity_name").val().trim();
+        if (!pram.act_name) {
+            layer.msg("活动名不能为空！");
+            return;
+        }
+        pram.start_date = $("#exhibitionStart_time").val().trim();
+        if (!pram.start_date) {
+            layer.msg("活动时间不能为空！");
+            return;
+        };
+        pram.end_date = $("#exhibitionEnd_time").val().trim();
+        if (!pram.end_date) {
+            layer.msg("活动时间不能为空！");
+            return;
+        };
+        // pram.show_start_date = $("#orderStart_time").val().trim();
+        // if (!pram.show_start_date) {
+        //     layer.msg("订单时间不能为空！");
+        //     return;
+        // };
+        // pram.show_end_date = $("#orderEnd_time").val().trim();
+        // if (!pram.show_end_date) {
+        //     layer.msg("订单时间不能为空！");
+        //     return;
+        // };
+        pram.us_lottery = $("[name = open-draw]").is(":checked") == true ? 1 : 0;
+        pram.us_reward = $("[name = open-drainage]").is(":checked") == true ? 1 : 0;
+        drainageState = pram.us_reward;
+        drawState = pram.us_lottery;
+        //提交数据，跳转页面
+        $ajax.ajaxPost('/activity/save_activity.do', pram, function (data) {
+            if (data.success) {
+                $("#activity_name ,#exhibitionStart_time , #exhibitionEnd_time").val("");
+                $(".page").tab("show");
+                $("#information").removeClass("active");
+                $("#page").addClass("active");
+                $("#ullist li:lt(3) a").attr("data-toggle", "tab");
+                activity_id = data.data.id;
+            } else {
+                layer.msg(data.msg);
+            }
+        });
+        if (drawState == 0) {
+            $("#click_draw").on("click", function () {
+                layer.msg("抽奖状态未启用", {
+                    time: 2000
+                })
+            })
+        } else if (drawState == 1) {
+            $("#ullist li:eq(3) a").attr("data-toggle", "tab");
+        }
+        if (drainageState == 0) {
+            $(".drainage").on("click", function () {
+                layer.msg("引流状态未启用", {
+                    time: 2000
+                })
+            })
+        } else if (drainageState == 1) {
+            $("#ullist li:eq(4) a").attr("data-toggle", "tab");
+        }
+    });
+    // 交易图片上传
+    // if ($("#goods_img_box .per_img ").length == 0) {
+    //     $("#add_img_goods").on("click", function () {
+    //         imgUpload.init(function (value) {
+    //             var realValue = api_path_config.upload_path + value;
+    //             new_obj = $('<div class="per_img">' +
+    //                 '	<span class="icon" style="line-height: 20px;">X</span>' +
+    //                 '</div>');
+    //             var url = 'url(' + realValue + ') 0 0 no-repeat';
+    //             new_obj.css({
+    //                 'background': url,
+    //                 'background-size': 'contain'
+    //             });
+    //             new_obj.attr('data_img', value);
+    //             $("#goods_img_box .per_img").remove();
+    //             $("#add_img_goods").before($(new_obj));
+
+    //         }, false);
+    //     });
+    // }
+
+    // $(".user-container").on("click", "#goods_img_box .per_img .icon", function () {
+    //     $(this).parent().remove();
+    // });
+
+    // // 抽奖图片上传
+    // if ($("#draw_box .per_img ").length == 0) {
+    //     $("#add_img_draw").on("click", function () {
+    //         imgUpload.init(function (value) {
+    //             var realValue = api_path_config.upload_path + value;
+    //             new_obj = $('<div class="per_img">' +
+    //                 '	<span class="icon" style="line-height: 20px;">X</span>' +
+    //                 '</div>');
+    //             var url = 'url(' + realValue + ') 0 0 no-repeat';
+    //             new_obj.css({
+    //                 'background': url,
+    //                 'background-size': 'contain'
+    //             });
+    //             new_obj.attr('data_img', value);
+    //             $("#draw_box .per_img").remove();
+    //             $("#add_img_draw").before($(new_obj));
+    //         }, false);
+    //     });
+    // }
+
+    // $(".user-container").on("click", "#draw_box .per_img .icon", function () {
+    //     $(this).parent().remove();
+    // });
+
+
+    //二维码图片上传
+    if ($("#qrcode_box .per_img ").length == 0) {
+        $("#qrcode").on("click", function () {
+            imgUpload.init(function (value) {
+                var realValue = api_path_config.upload_path + value;
+                new_obj = $('<div class="per_img">' +
+                    '	<span class="icon" style="line-height: 20px;">X</span>' +
+                    '</div>');
+                var url = 'url(' + realValue + ') 0 0 no-repeat';
+                new_obj.css({
+                    'background': url,
+                    'background-size': 'contain'
+                });
+                new_obj.attr('data_img', value);
+                $("#qrcode_box .per_img").remove();
+                $("#qrcode").before($(new_obj));
+            }, false);
+        });
+    }
+
+    $(".user-container").on("click", "#qrcode_box .per_img .icon", function () {
+        $(this).parent().remove();
+    });
+    //页面设置保存事件
+    var page_pram = {};
+    $("body").on("click", "#save", function () {
+        page_pram.activity_id = activity_id;
+        // page_pram.acti_explain = $("#activity_info").val().trim();
+        // if (!page_pram.acti_explain) {
+        //     layer.msg("请输入活动说明！");
+        //     return;
+        // };
+        // page_pram.award_explan = $("#draw_info").val().trim();
+        // if (!page_pram.award_explan) {
+        //     layer.msg("请输入抽奖说明！");
+        //     return;
+        // }
+        // var goods_pic = [];
+        // var arr = $(".per_img");
+        // for (var i = 0; i < arr.length; i++) {
+        //     goods_pic.push(arr.eq(i).attr("data_img"));
+        // };
+        // //pram.trade_entr_pic = goods_pic;
+        // page_pram.trade_entr_pic = $("#goods_img_box .per_img").attr("data_img");
+        // if (!page_pram.trade_entr_pic) {
+        //     layer.msg("请选择交易入口图片！");
+        //     return;
+        // };
+        // page_pram.award_entr_pic = $("#draw_box .per_img").attr("data_img");
+        // if (!page_pram.award_entr_pic) {
+        //     layer.msg("请选择抽奖入口图片！");
+        //     return;
+        // };
+        page_pram.qrcode_bk_pic = $("#qrcode_box .per_img").attr("data_img");
+        if (!page_pram.qrcode_bk_pic) {
+            layer.msg("请选择二维码背景图片！");
+            return;
+        };
+        $ajax.ajaxPost('/activity/save_activity_page.do', page_pram, function (data) {
+            if (data.success) {
+                // $("#activity_info , #draw_info").val("");
+                // $(".draw_img , .per_img").attr("data_img", "");
+                $(".goods").tab("show");
+                $("#page").removeClass("active");
+                $("#goods").addClass("active");
+            } else {
+                layer.msg(data.msg);
+            }
+        });
+
+    });
+
+
+    //活动商品
+    //商品列表获取
+    prodContent();
+
+    function prodContent() {
+        $ajax.ajaxPost('/active_item/get_item_no_invalid.do', {},
+            function (data) {
+                if (data.code == "10000") {
+                    $("#referee_select").html(doT.template(self_tpl.goodsRefereeSelect)(data.data));
+                } else {
+                    layer.msg(data.msg)
+                }
+            });
+    };
+    //商品列表渲染
+    function getGoodsData() {
+        // 获取列表
+        $ajax.ajaxPost('/activity/get_activity_item_by_act_id.do', {
+                activity_id: activity_id
+            },
+            function (data) {
+                if (data.code == "10000") {
+                    $('#tableBody').html(doT.template(self_tpl.addActivityGoodsList)({ data: data, path: api_path_config.upload_path}));
+                    $("body").off('click', '#click_goods');
+                }else if(data.data.length == 0){
+                    $("#tableBody").html("<tr><td colspan='11'><p style='text-align:center;'>暂无数据！</p</td></tr>")
+                }else {
+                    layer.msg(data.msg);
+                };
+            });
+    }
+
+    //点击添加按钮跳出添加商品弹出框
+    $(".user-container").on("click", "#addGoods", function () {
+        $('#addGoodsPopup').modal('toggle');
+    });
+    //根据选中商品进行添加添加事件
+    var addGoodsPram = {};
+    $("#addGoodsPopup").on("click", "#addChoiceGoods", function () {
+        addGoodsPram.activity_id = activity_id;
+        addGoodsPram.item_id = $("#referee_select").find("option:selected").attr("value");
+        addGoodsPram.sort = $("#goods_sort").val().trim();
+        // addGoodsPram.item_price = $("#goods_price").val().trim();
+        addGoodsPram.single_buy_num = $("#goods_limit").val().trim();
+        addGoodsPram.total_inv = $("#goods_sure").val().trim();
+        if (!addGoodsPram.item_id) {
+            layer.msg("请选择商品！");
+            return;
+        } else if (!addGoodsPram.sort) {
+            layer.msg("请输入商品排序！")
+            return;
+        } 
+        // else if (!addGoodsPram.item_price) {
+        //     layer.msg("请输入商品价格！")
+        //     return;
+        // } 
+        else if (!addGoodsPram.single_buy_num) {
+            layer.msg("请输入商品限购量！")
+            return;
+        } else if (!addGoodsPram.total_inv) {
+            layer.msg("请输入商品总库存！")
+            return;
+        }
+        $ajax.ajaxPost('/activity/save_activity_item.do', addGoodsPram, function (data) {
+            if (data.success) {
+                $("#referee_select option:selected").remove();
+                $("#goods_sort , #goods_price , #goods_limit , #goods_sure ").val("");
+                $('#addGoodsPopup').modal('toggle');
+                getGoodsData();
+            } else {
+                layer.msg(data.msg);
+            }
+        });
+    });
+
+    //活动商品保存事件
+    var goodsPreservation = {};
+    $("#tableBody").on("click", ".off", function () {
+        var _this = $(this);
+        var _id = _this.attr("data-id");
+        goodsPreservation.id = _id;
+        goodsPreservation.activity_id = activity_id;
+        goodsPreservation.sort = _this.parents("tr").find(".goods-sort").val();
+        // goodsPreservation.item_price = _this.parents("tr").find(".goods-price").val();
+        goodsPreservation.single_buy_num = _this.parents("tr").find(".goods-num").val();
+        goodsPreservation.total_inv = _this.parents("tr").find(".goods-inv").val();
+        goodsPreservation.version = _this.attr("data-version");
+        if (!goodsPreservation.sort) {
+            layer.msg("请输入商品排序！");
+            return;
+        }
+         else if (!goodsPreservation.single_buy_num) {
+            layer.msg("请输入商品限购量！");
+            return;
+        } else if (!goodsPreservation.total_inv) {
+            layer.msg("请输入商品总库存！");
+            return;
+        };
+        $ajax.ajaxPost('/activity/update_activity_item.do', goodsPreservation, function (data) {
+            if (data.success) {
+                getGoodsData();
+                layer.msg("保存成功");
+            } else {
+                layer.msg(data.msg);
+            }
+        });
+    });
+
+    //删除事件
+    $("#tableBody").on("click", ".dele", function () {
+        var _id = $(this).attr("data-id");
+        id = {
+            id: _id
+        };
+        $ajax.ajaxPost('/activity/remove_activity_item.do', id, function (data) {
+            if (data.success) {
+                getGoodsData();
+                layer.msg("删除成功");
+            }
+        });
+    });
+
+    //按需加载抽奖页面数据
+    $("body").on("click", "#click_draw", function () {
+        getDrawData();
+        drawList();
+    });
+    //商品列表获取
+    function drawList() {
+        $ajax.ajaxPost('/active_item/get_item_list.do', {},
+            function (data) {
+                if (data.code == "10000") {
+                    $("#refereeSelect").html(doT.template(self_tpl.drawRefereeSelect)(data.data));
+                }
+            });
+    };
+    //商品列表渲染
+    function getDrawData() {
+        // 获取列表
+        $ajax.ajaxPost('/activity/get_activity_award_conf_by_act_id.do', {
+                activity_id: activity_id
+            },
+            function (data) {
+                if (data.code == "10000") {
+                    len = data.data.length;
+                    $('#table-body').html(doT.template(self_tpl.addActivityDrawList)(data.data));
+                    $("body").off('click', '#click_draw');
+                }else if(data.data.length == 0){
+                    $("#table-body").html("<tr><td colspan='6'><p style='text-align:center;'>暂无数据！</p</td></tr>")
+                } else {
+                    layer.msg(data.msg)
+                }
+            });
+    }
+    //点击添加抽奖商品按钮跳出弹出框
+    //点击添加抽奖商品按钮跳出弹出框
+
+    $(".user-container").on("click", "#addDrawGoods", function () {
+        $('#addDrawPopup').modal('toggle');
+    });
+    //修改默认金额
+    var datapram = {
+        activity_id: activity_id,
+    };
+    var changeDataType = "";
+    //根据选中商品进行添加添加事件
+    $("#grade").change(function () {
+        changeDataType = $("#grade").find("option:selected").attr("value");
+        if (changeDataType == 0) {
+            $("#drawBody #choiceGoods").css("display", "block");
+            $("#drawBody #awardMoney").css("display", "none");
+        } else if (changeDataType == null) {
+            $("#drawBody #choiceGoods").css("display", "block");
+            $("#drawBody #awardMoney").css("display", "block");
+        }
+        else {
+            $("#drawBody #choiceGoods").css("display", "none");
+            $("#drawBody #awardMoney").css("display", "block");
+        }
+    });
+    var addDrawPram = {};
+    $("#addDrawPopup").on("click", "#addDrawSave", function () {
+        addDrawPram.award_type = $("#grade").find("option:selected").attr("value");
+        addDrawPram.activity_id = activity_id;
+        if (!addDrawPram.award_type) {
+            layer.msg("请选择奖品级别！");
+            return;
+        }
+        if (changeDataType == 0) {
+            addDrawPram.item_id = $("#refereeSelect").find("option:selected").attr("value");
+            if (!addDrawPram.item_id) {
+                layer.msg("请选择商品！");
+                return;
+            }
+        } else if (changeDataType != 0 || changeDataType != null) {
+            addDrawPram.award_money = $("#prize_value").val();
+            if (!addDrawPram.award_money) {
+                layer.msg("请选择商品！");
+                return;
+            }
+        }
+        if (len <= 4) {
+            $ajax.ajaxPost('/activity/save_activity_award_conf.do', addDrawPram, function (data) {
+                if (data.success) {
+                    $("#grade .jing").attr("selected", "selected");
+                    $("#refereeSelect .wei").attr("selected", "selected");
+                    $("#prize_value").val("");
+                    $('#addDrawPopup').modal('toggle');
+                    addDrawPram = {};
+                    getDrawData();
+                } else {
+                    if (layer.msg == "") {
+                        layer.msg("添加失败");
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                }
+            });
+        } else {
+            layer.msg("最多可添加五个奖项！");
+        }
+
+    });
+    //抽奖保存事件
+    //出奖序号
+    // $("#goodsTable").on("click", ".draw-serial-number", function () {
+    //     var __this = $(this);
+    //     $('#addDrawSerialNumber').modal('toggle');
+    //     $("#drawSerialNumberText").val($(__this).val());
+    //     __this.attr("id", "Identification");
+    // });
+    // $("#addDrawSerialNumber").on("click", "#drawSerialNumberSave", function (__this) {
+    //     $("#Identification").val($("#drawSerialNumberText").val());
+    //     $("#Identification").attr("id", "");
+    //     $('#addDrawSerialNumber').modal('toggle');
+    // });
+    var drawPreservation = {};
+    $("#goodsTable").on("click", ".off", function () {
+        var _this = $(this);
+        var _id = _this.attr("data-id");
+        drawPreservation.id = _id;
+        drawPreservation.activity_id = activity_id;
+        drawPreservation.award_money = _this.parents("tr").find(".draw-money").val();
+        var dataType = _this.parents("tr").find(".draw-money").attr("data-type");
+        // drawPreservation.default_money = $("#default_amount").val().trim();
+        if (!drawPreservation.award_money) {
+            layer.msg("请输入金额！");
+            return;
+        } 
+        $ajax.ajaxPost('/activity/update_activity_award_conf.do', drawPreservation, function (data) {
+            if (data.success) {
+                getDrawData();
+                layer.msg("保存成功");
+            } else {
+                if (layer.msg == "") {
+                    layer.msg("添加失败");
+                } else {
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    });
+
+    $("#goodsTable").on("click", ".dele", function () {
+        var _id = $(this).attr("data-id");
+        id = {
+            id: _id
+        };
+        $ajax.ajaxPost('/activity/remove_activity_award_conf.do', id, function (data) {
+            if (data.success) {
+                getDrawData();
+                layer.msg("删除成功");
+            }
+        });
+    });
+    //引流页面逻辑
+    var agentPram = {};
+    $("body").on("click", "#drainageSave", function () {
+        agentPram.id = activity_id;
+        agentPram.award_money = $("#drainage-money").val().trim();
+        agentPram.num = $("#drainage-num").val().trim();
+        if (!agentPram.award_money) {
+            layer.msg("请输入单位数量");
+            return;
+        } else if (!agentPram.award_money) {
+            layer.msg("请输入红包金额！");
+            return;
+        }
+        $ajax.ajaxPost('/activity/update_activity_draiaward.do', agentPram, function (data) {
+            if (data.success) {
+                layer.msg("保存成功");
+                $("#drainage-num , #drainage-money").val("");
+                window.location.href = "activity-list.html";
+            } else {
+                if (layer.msg == "") {
+                    layer.msg("保存失败");
+                } else {
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    });
+    //input框内容校验
+    //排序
+    $("body").on("keyup", ".sort", function () {
+        var value = $(this).val().trim();
+        var re = /^\d{1,2}$/;
+        if (!re.test(value)) {
+            layer.msg("排序为一到两位数字");
+            $(this).val("");
+        }
+    });
+    //数量
+    $("body").on("keyup", ".amount", function () {
+        var value = $(this).val().trim();
+        var re = /^\+?[0-9][0-9]*$/;
+        if (!re.test(value)) {
+            layer.msg("输入内容为数字");
+            $(this).val("");
+        }
+    });
+    //价格
+    $("body").on("keyup", ".price-check", function () {
+        var value = $(this).val().trim();
+        var re = /^\d{1,6}(\.(\d{1,2})?)?$/;
+        if (!re.test(value)) {
+            layer.msg("价格为数字，且小数点后为两位");
+            $(this).val("");
+        }
+    });
+    //数量
+    $("body").on("keyup", ".amount", function () {
+        var value = $(this).val().trim();
+        var re = /^\+?[0-9][0-9]*$/;
+        if (!re.test(value)) {
+            layer.msg("输入内容为数字");
+            $(this).val("");
+        }
+    });
+
+    //出奖序号
+    $("body").on("keyup", ".comma", function () {
+        var value = $(this).val().trim();
+        var re = /^[\d,]+$/;
+        if (!re.test(value)) {
+            layer.msg("出奖序号由数字组成且以英文逗号分隔");
+        }
+    });
+
+    //比例
+    $("body").on("keyup", ".proportion", function () {
+        var value = $(this).val().trim();
+        var re = /^\d{0,2}(\.(\d{1,2})?)?$/;
+        if (!re.test(value)) {
+            layer.msg("概率为小于100的数字，且小数点后为两位");
+            $(this).val("");
+        }
+    });
+});

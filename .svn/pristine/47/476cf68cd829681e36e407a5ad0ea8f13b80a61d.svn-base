@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/css/zTreeStyle/zTreeStyle.min.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/department-list.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="09">
+<input type="hidden" name="menu-active" value="0902">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a type="button" class="btn btn-default" href="employee-list.html">员工列表</a>
+		  <a type="button" class="btn btn-default selected" href="department-list.html">部门列表</a>
+		</div>
+		<br>
+		<br>
+		<div class="dep-container list-group">
+			<button type="button" class="btn btn-success" id="add-btn">新建部门</button>
+			<!-- <a href="employee.html" class="btn btn-success">新建员工</a> -->
+			<div id="depTree" class="ztree depTree"></div>
+		</div>
+		<div class="dep-edit edit-group">
+			<div class="btn-group dep-heaer">
+			</div>
+			<div class="dep-info">
+				<input type="hidden" id="dep-id">
+				<form class="form-horizontal" dep="form">
+				  <div class="form-group">
+					<label for="dep-name" class="col-sm-2 control-label">部门名称：</label>
+					<div class="col-sm-4">
+					  <input type="email" class="form-control" id="dep-name" placeholder="请填写部门名称">
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="dep-name" class="col-sm-2 control-label">部门描述：</label>
+					<div class="col-sm-4">
+					  <textarea class="form-control" rows="3" placeholder="请填写部门描述" id="dep-description"></textarea>
+					</div>
+				  </div>
+				</form>
+				<div class="tool">
+					<button type="button" class="btn btn-default" id="save-dep">保存</button>
+					<button type="button" class="btn btn-success" id="cancel-save-dep">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/js/jquery.ztree.core-3.5.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/js/jquery.ztree.excheck-3.5.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/js/jquery.ztree.exedit-3.5.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/department-list.js?v=2.0.32"></script>
+</body>
+</html>

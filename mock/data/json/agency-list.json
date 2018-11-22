@@ -1,0 +1,21 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": "1",
+        "realName": "姓名",
+        "mobile": "135999895",
+        "amount": "1000",
+        "gradeName":"四级",
+        "parentName": "XXX",
+        "topName": "XXX",
+        "childNum": 44,
+        "totalTeam": 55,
+        "authStatus": 0
+      }
+    ],
+    "totalCount": 3
+  }
+}

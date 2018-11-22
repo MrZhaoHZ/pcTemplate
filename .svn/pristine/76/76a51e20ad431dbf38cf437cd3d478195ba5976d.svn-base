@@ -1,0 +1,87 @@
+﻿.pager{
+	float: right;
+    // margin-left: 290px;
+    // margin-top: 15px;
+    // padding: 14px 0 25px;
+    text-align: center;
+    height: 35px;
+}
+    .pager ul.pages {
+    display:block;
+    border:none;
+    text-transform:uppercase;
+    font-size:12px;margin:10px 0 50px;padding:0;
+}
+    .pager ul.pages li {
+   margin:0px 5px 0 0;
+    border: 1px solid #e3e3e3;
+    color: #333;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    text-align: center;
+    _zoom:1;*display:inline;
+}
+    .pager ul.pages li.page-number:hover {
+    /*border:1px solid #003f7e; */
+    background:#f1f1f1; color:#000; text-decoration:none
+}
+    .pager ul.pages li.pgEmpty {
+    border:1px solid #eee;
+    color:#eee;
+}
+.pager ul.pages li.pgCurrent,#pager ul.pages li.pgCurrent:hover{
+    background: #007cdb none repeat scroll 0 0;
+    border: 1px solid #007cdb;
+    color: #fff;
+    /*display: inline-block;*/
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+
+.pages li.total {
+    border: 1px solid #e3e3e3;
+    color: #333;
+}
+    .pager ul.pages {
+    display:block;
+    border:none;
+    text-transform:uppercase;
+    font-size:12px;margin:10px 0 50px;padding:0;
+}
+.pager ul.pages:hover {
+    background: none;
+}
+    .pager ul.pages li {
+    margin:0px 5px 0 0;
+    border: 1px solid #e3e3e3;
+    color: #333;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    text-align: center;
+}
+    .pager ul.pages li.page-number:hover {
+    /*border:1px solid #003f7e; */
+    background:#f1f1f1; color:#000; text-decoration:none
+}
+    .pager ul.pages li.pgEmpty {
+    border:1px solid #eee;
+    color:#eee;
+}
+    .pager ul.pages li.pgCurrent,.pager ul.pages li.pgCurrent:hover {
+    background: #007cdb none repeat scroll 0 0;
+    border: 1px solid #007cdb;
+    color: #fff;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    text-align: center;
+}
+.pages li.total{cursor:auto}

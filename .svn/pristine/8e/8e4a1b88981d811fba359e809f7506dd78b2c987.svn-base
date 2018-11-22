@@ -1,0 +1,66 @@
+{
+    "msg": "??", 
+    "code": "10000", 
+    "success": true, 
+    "data": {
+        "total_counts": 4, 
+        "item_spu_d_t_os": [
+            {
+                "spu_name": "fujichaotest", 
+                "image_uri": "1169611502096964468.jpg", 
+                "item_status": 0, 
+                "category_id": 59, 
+                "invalid": 0, 
+                "remarks": "info", 
+                "category_name": "???", 
+                "id": 72, 
+                "creator": 49, 
+                "updator": 49, 
+                "create_date": "2017-11-10 13:17:31", 
+                "update_date": "2017-11-10 13:17:31"
+            }, 
+            {
+                "spu_name": "fujichaoname", 
+                "image_uri": "1169611502096964468.jpg", 
+                "item_status": 1, 
+                "category_id": 59, 
+                "invalid": 0, 
+                "remarks": "fsaf", 
+                "category_name": "???", 
+                "id": 71, 
+                "creator": 49, 
+                "updator": 49, 
+                "create_date": "2017-11-09 17:08:56", 
+                "update_date": "2017-11-09 17:08:56"
+            }, 
+            {
+                "spu_name": "fujichao", 
+                "image_uri": "1169611502096964468.jpg", 
+                "item_status": 1, 
+                "category_id": 59, 
+                "invalid": 0, 
+                "remarks": "info", 
+                "category_name": "???", 
+                "id": 69, 
+                "creator": 49, 
+                "updator": 49, 
+                "create_date": "2017-11-09 13:43:36", 
+                "update_date": "2017-11-09 13:43:36"
+            }, 
+            {
+                "spu_name": "test", 
+                "image_uri": "1169271501223290123.jpg", 
+                "item_status": 1, 
+                "category_id": 59, 
+                "invalid": 0, 
+                "remarks": "info", 
+                "category_name": "???", 
+                "id": 65, 
+                "creator": 49, 
+                "updator": 49, 
+                "create_date": "2017-11-08 20:59:05", 
+                "update_date": "2017-11-09 11:32:37"
+            }
+        ]
+    }
+}

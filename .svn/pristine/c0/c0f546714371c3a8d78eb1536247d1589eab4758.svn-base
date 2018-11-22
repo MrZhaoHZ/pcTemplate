@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/autho-book-list.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="03">
+<input type="hidden" name="menu-active" value="0307">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+		<!-- <ul>
+			<li class="active"><a href="agency-list.html" data-id="1">代理商列表</a></li>
+			<li><a href="department.html" data-id="2">部门管理</a></li>
+			<li><a href="employee.html" data-id="3">员工管理</a></li>
+			<li><a href="role-management.html" data-id="4">角色管理</a></li>
+		</ul> -->
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a class="btn btn-default selected" href="javascript:void(0)">授权书管理</a>
+		</div>
+		<br>
+		<br>
+		<div class="form-inline middle-condition">
+		  <div class="form-group inline-btn">
+			<a href="autho-book-setting.html" class="btn btn-success">添加授权书</a>
+		  </div>
+		</div>
+		<table class="table table-bordered">
+			<!-- <thead>
+				<tr>
+				  <th>名称</th>
+				  <th>授权金额</th>
+				  <th>所属级别</th>
+				  <th>状态</th>
+				  <th>操作时间</th>
+				  <th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				  <td>董事</td>
+				  <td>98000</td>
+				  <td>顶级</td>
+				  <td>启用</td>
+				  <td>2016-07-21 17:38:34</td>
+				  <td><a href="javascript:void(0)">修改</a></td>
+				</tr>
+			</tbody> -->
+		</table>
+		<div id="pager"></div>
+	</div>
+</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/autho-book-list.js?v=2.0.32"></script>
+</body>
+</html>

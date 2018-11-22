@@ -1,0 +1,86 @@
+#appindex{
+    #header{
+        margin-bottom: -1px;
+        background-color: rgb(127, 187, 255);
+        .nav{
+            height: 50px;
+            padding: 0 10px;
+            position: relative;
+            line-height: 49px;
+            .center{
+                position:absolute ;
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
+    }
+    #act_entrance,#draw_entrance{
+        padding: 5px 5px 0 5px;
+        .img-content{
+            display: block;
+            border: 1px solid #000;
+            width: 347px;
+            height: 220px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    #footer{
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+        position: fixed;
+        background-color: #eee;
+        border-top: 1px solid #DDDDDD;
+        bottom: 0;
+        ul{
+            li{
+                width: 33%;
+                float: left;
+                text-align: center;
+                list-style: none;
+                a{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    text-decoration:none;
+                }
+            }
+        }
+    }
+    #act_explain{
+        padding: 10px 5px;
+        .prodlistCon{
+            li{
+                list-style: none;
+                width: 100%;
+                .prodImage{
+                    width: 55%;
+                    float: left;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .prodInfor{
+                    position: relative;
+                    width: 45%;
+                    float: left;
+                    p{
+                        margin: 0 0 5px 20px;
+                        height: 26px;
+                        width: 100%;
+                    }
+                    .dinghuo{
+                        width: 30px;
+                        margin: 0;
+                        position: absolute;
+                        right: 0;
+                        bottom: 2px;
+                    }
+                }
+            }
+        }
+    }
+}

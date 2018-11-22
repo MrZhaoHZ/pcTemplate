@@ -1,0 +1,36 @@
+.right-bar {
+	.nav-select .selected {
+		border-bottom: none;
+	}
+	.nav-select {
+		.btn {
+			border-radius: 0;
+		}
+	}
+	.middle-condition {
+		margin: 5px 0;
+		.form-group {
+		    width: 130px;
+		}
+		.form-control {
+		    width: 100%;
+		}
+		.inline-btn {
+			width: auto;
+		}
+	}
+	tr th,tr td {
+		text-align: center;
+	}
+	.table {
+		margin-bottom: 5px;
+	}
+	.layui-layer .layui-layer-title {
+		text-align: left;
+	}
+}
+.check-process {
+	span {
+		font-weight: bold;
+	}
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Note there is no responsive meta tag here -->
+    <link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+    <title>微商管理</title>
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.1.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/drainage-data.css?v=2.0.32" rel="stylesheet">
+    <style>
+        .query-container{
+            margin: 30px 0 0 0px;
+            width: 100%;
+        }
+        .query-text{
+            width: 60%;
+            margin: 0 30px 0 0;
+            padding: 0 10px;
+        }
+        .detailed-container{
+            margin: 20px 0;
+        }
+        p{
+            line-height: 40px;
+            padding-left: 15px;
+            font-size: 18px;
+            width: 80%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" name="nav-active" value="11">
+    <input type="hidden" name="menu-active" value="1107">
+    <div class="container main-container">
+        <div class="left-bar" id="menu-container">
+
+        </div>
+        <div class="right-bar" id="right-bar-container">
+            <div class="btn-group nav-select">
+                <a type="button" class="btn btn-default" style="border-bottom:none;" href="javascript:void(0);" data-id="0">红包查询</a>
+            </div>
+            <div class="query-container clearfix">
+                <input type="text" id="query_text" class="form-control pull-left query-text" placeholder="请输入订单号进行查询">
+                <button type="button" class="btn btn-success pull-left">查询</button>
+            </div>
+            <div class="detailed-container clearfix">
+                 <h4 class="pull-left">红包状态:</h4> 
+                 <p class="pull-left" id="state"></p>
+            </div>
+            <div class="detailed-container clearfix">
+                <h4 class="pull-left">红包金额:</h4>
+                <p class="pull-left" id="money"></p>
+            </div>
+            <div class="detailed-container clearfix">
+                <h4 class="pull-left">发放数量:</h4>
+                <p class="pull-left" id="number"></p>
+            </div>
+            <div class="detailed-container clearfix">
+                <h4 class="pull-left">发放时间:</h4>
+                <p class="pull-left" id="release_time"></p>
+            </div>
+            <div class="detailed-container clearfix">
+                <h4 class="pull-left">退回时间:</h4>
+                <p class="pull-left" id="return_time"></p>
+            </div>
+            <div class="detailed-container clearfix">
+                <h4 class="pull-left">错误信息:</h4>
+                <p class="pull-left" id="error_message"></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/redPacketQuery.js?v=2.0.32"></script>
+</body>
+
+</html>

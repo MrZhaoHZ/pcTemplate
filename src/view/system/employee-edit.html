@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/jquery-ztree/3.5.12/css/zTreeStyle/zTreeStyle.min.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/css/employee-edit.css?v=@version" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="09">
+<input type="hidden" name="menu-active" value="0901">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar">
+		<!-- <div class="dep-container list-group"> -->
+			<!-- <button type="button" class="btn btn-success" id="add-btn">新建员工</button> -->
+			<!-- <div id="depTree" class="ztree depTree"></div> -->
+		<!-- </div> -->
+		<div class="dep-edit edit-group" id="edit-area">
+			<!-- <div class="btn-group dep-heaer">
+				<button type="button" class="btn btn-default selected">新建员工</button>
+			</div>
+			<div class="dep-info">
+				<input type="hidden" id="dep-id">
+				<form class="form-horizontal" dep="form">
+				  <div class="form-group">
+					<label for="dep-name" class="col-sm-2 control-label">姓名：</label>
+					<div class="col-sm-4">
+					  <input type="email" class="form-control" id="dep-name" placeholder="请填写姓名">
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="dep-name" class="col-sm-2 control-label">性别：</label>
+					<div class="col-sm-4">
+						<label class="radio-inline">
+						  	<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+						</label>
+						<label class="radio-inline"> 
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+						</label>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="dep-name" class="col-sm-2 control-label">部门：</label>
+					<div class="col-sm-4">
+						<select class="form-control">
+						  <option>1</option>
+						  <option>2</option>
+						  <option>3</option>
+						  <option>4</option>
+						  <option>5</option>
+						</select>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="dep-name" class="col-sm-2 control-label">用户：</label>
+					<div class="col-sm-4">
+						<select class="form-control">
+						  <option>1</option>
+						  <option>2</option>
+						  <option>3</option>
+						  <option>4</option>
+						  <option>5</option>
+						</select>
+					</div>
+				  </div>
+				  <div class="form-group">
+				  	<label for="dep-name" class="col-sm-2 control-label"></label>
+				  	<div class="col-sm-4">
+				  		<button type="button" class="btn btn-default" id="save-dep">保存</button>
+						<button type="button" class="btn btn-warning" id="delete-dep">删除</button>
+						<button type="button" class="btn btn-success" id="cancel-save-dep">取消</button>
+				  	</div>
+				  </div>
+				</form>
+			</div> -->
+		</div>
+	</div>
+</div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/libs/jquery-ztree/3.5.12/js/jquery.ztree.core-3.5.min.js"></script>
+<script src="@static_path/libs/jquery-ztree/3.5.12/js/jquery.ztree.excheck-3.5.min.js"></script>
+<script src="@static_path/libs/jquery-ztree/3.5.12/js/jquery.ztree.exedit-3.5.min.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_path/bundle/employee-edit.js?v=@version"></script>
+</body>
+</html>

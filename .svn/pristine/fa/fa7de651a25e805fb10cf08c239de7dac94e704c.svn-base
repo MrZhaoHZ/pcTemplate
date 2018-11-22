@@ -1,0 +1,369 @@
+var self_tpl = require('../../module/tpl/agent-rule-tpl.js');
+var $ajax = require('../../common/ajax.js');
+var area = require('../../common/area.js');
+var team_level = require('../../common/team-level.js');
+var api_path_config = require('../../../../tmp_path_config.js');
+var httpURL = require('../../common/http-url.js');
+$(function() {
+	var type = httpURL.getQueryString('type');
+	var currMemberId = null;
+	// team_level.team();
+	team_level.level();
+	area.init();
+	var filterCondition = {
+		page_size: 20,
+		current_page: 1
+	};
+
+	function getAgencyList(pageIndex) {
+		filterCondition.current_page = pageIndex;
+		var reqStr = '/rule/saved_agent_list.do';
+		if(type == 'new') {
+			reqStr = '/rule/unsaved_agent_list.do';
+			$('#create-rule-btn').hide();
+		}
+		$ajax.post(reqStr, filterCondition, function(data) {
+			if(data.success) {
+				if(data.data.datas) {
+					$('#nodata-tips').hide();
+					data.data.operate_type = 'edit';
+					if(type == 'new') {
+						data.data.operate_type = 'new';
+					}
+					$('#agency-list').html(doT.template(self_tpl.agencyListTpl)(data.data));
+					$("#pager").pager({
+						pagenumber: pageIndex,
+						pagecount: Math.ceil(data.data.total_count / filterCondition.page_size),
+						buttonClickCallback: getAgencyList,
+						totalCounts: data.data.total_count
+					});
+					$("#pager").show();
+				} else {
+					$('#nodata-tips').show();
+					$('#agency-list').html('');
+					$("#pager").hide();
+				}
+			}
+		});
+	}
+	getAgencyList(1);
+	$("body").on("click", ".radio_is_open", function() {
+		if($('input[name="isOpen"]:checked').val() == 1) {
+			$("#super_esc").css("display", "");
+		} else {
+			$("#super_esc").css("display", "none");
+		}
+	})
+	$("body").on("click", "#super_esc", function() {
+		_this = this;
+		var content = {
+			member_id: parseInt(menberId),
+			status: parseInt($('input[name="isOpen"]:checked').val()),
+			type: parseInt($('input[name="limit-type"]:checked').val()),
+			superesc: "1"
+		};
+		if($(_this).attr("data_id")) {
+			content.id = $(_this).attr("data_id");
+		}
+		content.agent_rule_list = arr;
+		$ajax.post("/rule/superEsc.do", {content: JSON.stringify(content)}, function(data) {
+			if(data.success) {
+				window.location.reload(); 
+			}
+		});
+	})
+	$("body").on("click", "#super_open", function() {
+		_this = this;
+		var content = {
+			member_id: parseInt(menberId),
+			status: parseInt($('input[name="isOpen"]:checked').val()),
+			type: parseInt($('input[name="limit-type"]:checked').val()),
+			agent_grade: agent_grade +"",
+			superesc: "3"
+		};
+		if($(_this).attr("data_id")) {
+			content.id = $(_this).attr("data_id");
+		}
+		content.agent_rule_list = arr;
+		$ajax.post("/rule/oneOpen.do", {content: JSON.stringify(content)}, function(data) {
+			if(data.success) {
+				window.location.reload(); 
+			}
+		});
+	})
+	$('#filter-btn').click(function() {
+		filterCondition = {
+			team: $('#all-team option:checked').val(),
+			downLevel: $('#all-team-child option:checked').val(),
+			isAll: $('#isAll option:checked').val(),
+			allLevel: $('#all-level option:checked').val(),
+			name: $('#nickname').val(),
+			real_name: $('#name').val(),
+			mobile: $('#phone').val(),
+			wechat_id: $('#wechatID').val(),
+			auth_number: $('#authoCode').val(),
+			authon_personalid: $('#idnumber').val(),
+			province_code: $('#area-province option:checked').val(),
+			city_code: $('#area-province option:checked').val(),
+			area_code: $('#area-district option:checked').val(),
+			page_size: 20,
+			current_page: 1
+		}
+		getAgencyList(1);
+	});
+	var pram = {
+		"member_id": "",
+		"spu_id": ""
+	}
+	// 点击新建的时候弹窗
+	var EditIsSave = 0;
+	$('.right-bar').delegate('.limit-setting', 'click', function() {
+		EditIsSave = 0;
+		$("#goods_list").attr("data_is_new", 2); // 当data_is_new是1的时候是编辑 2的时候是新建
+		$('#limit-setting-modal-body').html("")
+		menberId = $(this).attr('data-memberid');
+		pram.member_id = $(this).attr('data-memberid');
+		getAllGoodsList();
+		pram.id = "";
+		pram.spu_id = "";
+		newGoodsRuleList();
+		$('#limit-setting-modal').modal('show')
+	});
+	// 点击编辑的时候弹窗
+	var menberId = null;
+	var agent_grade = null;
+	$('.right-bar').delegate('.limit-setting-edit', 'click', function() {
+		EditIsSave = 0;
+		$("#goods_list").attr("data_is_new", 1); // 当data_is_new是1的时候是编辑 2的时候是新建
+		$('#limit-setting-modal-body').html("");
+		agent_grade = $(this).attr('data_grade')
+		pram.member_id = $(this).attr('data-memberid');
+		menberId = pram.member_id;
+		pram.id = "";
+		pram.spu_id = "";
+		getAllGoodsList();
+		editGoodsRuleList();
+		$('#limit-setting-modal').modal('show')
+	});
+	var arr = null;
+	// 编辑的网络
+	function editGoodsRuleList() {
+		$ajax.ajaxPost('/rule/get_agent_ruleList.do', pram, function(data) {
+			if(data.success) {
+				arr = data.data.agent_rule_list;
+				data.upload_path = api_path_config.upload_path;
+				$('#limit-setting-modal-body').html(doT.template(self_tpl.limitSettingEdit)(data))
+				$('#limit-setting-modal').modal('show');
+			}
+		});
+	};
+
+	function newGoodsRuleList() {
+		$ajax.ajaxPost('/rule/get_agent_ruleList.do', pram, function(data) {
+			if(data.success) {
+				arr = data.data.agent_rule_list;
+				data.upload_path = api_path_config.upload_path;
+				if(data.data.agent_rule_list) {
+					$('#limit-setting-modal-body').html(doT.template(self_tpl.limitSettingEdit)(data));
+					return;
+				}
+				$('#limit-setting-modal-body').html(doT.template(self_tpl.limitSetting)(data));
+			}
+		});
+	}
+
+	function getAllGoodsList() {
+		$ajax.ajaxPost('/commodity/spu/list.do', {
+			"invalid": 0
+		}, function(data) { // 获取商品列表
+			if(data.success) {
+				$('#goods_list').html(doT.template(self_tpl.goodsLists)(data.data.item_spu_d_t_os));
+			}
+		});
+	};
+	$('#limit-setting-modal-body').on('keyup', '.limit-num', function() {
+		this.value = this.value.replace(/\D/g, '');
+	});
+	$("body").on("click", "#save_status", function() {
+		_this = this;
+		var saveData = {
+			id: $(_this).attr("data_id"),
+			member_id: parseInt(menberId),
+			status: parseInt($('input[name="isOpen"]:checked').val()),
+			type: parseInt($('input[name="limit-type"]:checked').val())
+		};
+		saveDataFn(saveData);
+	});
+	$("body").on("click", ".save_per", function() {
+		var saveData = {
+			member_id: parseInt(menberId),
+			status: parseInt($('input[name="isOpen"]:checked').val()),
+			type: parseInt($('input[name="limit-type"]:checked').val())
+		};
+		if($("#limit-settimg-tbody").attr("data_id")) {
+			saveData.id = $("#limit-settimg-tbody").attr("data_id");
+		} else {
+			saveData.id = "";
+		}
+		var parentTr = $(this).parents("tr");
+		saveData.spu_id = parseInt(parentTr.attr("data-id"));
+		var perSpuData = getPerTrData(parentTr); // 获取每个spu商品的信息
+		if(perSpuData.flag == 2) { // 信息填写有误 ，返回
+			return;
+		}
+		saveData.agent_rule_list = perSpuData.arr;
+		saveDataFn(saveData);
+	});
+
+	function getPerTrData(parentTr) {
+		var list = [];
+		var trLength = parentTr.find(".spu_name").attr("rowspan");
+		var flag = 1;
+		for(var i = 0; i < trLength; i++) {
+			var item = {};
+			item.sku_id = parseInt(parentTr.find(".goods_img").attr("data_id"));
+			item.day_max = parentTr.find('.limit-num').eq(0).val();
+			item.allowed_buy = 2;
+			item.week_max = parentTr.find('.limit-num').eq(1).val();
+			item.month_max = parentTr.find('.limit-num').eq(2).val();
+			var temp = item;
+			if(temp.day_max == '' || temp.week_max == '' || temp.month_max == '') {
+				layer.msg('规则不能设置为空');
+				//$('#limit-setting-modal').modal('toggle');
+				flag = 2;
+				return;
+			}
+			if(temp.day_max && temp.week_max && parseInt(temp.day_max) > parseInt(temp.week_max)) {
+				layer.msg('周限量必须大于日限量！');
+				//$('#limit-setting-modal').modal('toggle');
+				flag = 2;
+				return;
+			}
+			if(temp.day_max && temp.month_max && parseInt(temp.day_max) > parseInt(temp.month_max)) {
+				layer.msg('月限量必须大于日限量！');
+				// $('#limit-setting-modal').modal('toggle');
+				flag = 2;
+				return;
+			}
+			if(temp.week_max && temp.month_max && parseInt(temp.week_max) > parseInt(temp.month_max)) {
+				layer.msg('月限量必须大于周限量！');
+				// $('#limit-setting-modal').modal('toggle');
+				flag = 2;
+				return;
+			};
+			if(item.day_max != '' || item.week_max != '' || item.month_max != '') {
+				list.push(item);
+			};
+			parentTr = parentTr.next();
+		};
+		return {
+			"arr": list,
+			flag: flag
+		};
+	}
+	$('#save-limit-setting').click(function() {
+		menberId = $(this).attr("data-memberid");
+		var saveData = {
+			member_id: currMemberId,
+			status: $('input[name="isOpen"]:checked').val(),
+			type: $('input[name="limit-type"]:checked').val()
+		}
+		var list = [];
+		$('#limit-settimg-tbody tr').each(function() {
+			var item = {};
+			item.sku_id = parseInt($(this).data('id'));
+			item.allowed_buy = $(this).find('[name=isHidden' + item.sku_id + ']:checked').val();
+			item.day_max = $(this).find('.limit-num').eq(0).val();
+			item.week_max = $(this).find('.limit-num').eq(1).val();
+			item.month_max = $(this).find('.limit-num').eq(2).val();
+			if(item.day_max != '' || item.week_max != '' || item.month_max != '') {
+				list.push(item);
+			}
+		});
+		//日<周<月
+		for(var i = 0; i < list.length; i++) {
+			var temp = list[i];
+			if(temp.day_max == '' || temp.week_max == '' || temp.month_max == '') {
+				layer.msg('规则不能设置为空');
+				//$('#limit-setting-modal').modal('toggle');
+				return;
+			}
+			if(temp.day_max && temp.week_max && parseInt(temp.day_max) > parseInt(temp.week_max)) {
+				layer.msg('日限量不能大于周限量');
+				//$('#limit-setting-modal').modal('toggle');
+				return;
+			}
+			if(temp.day_max && temp.month_max && parseInt(temp.day_max) > parseInt(temp.month_max)) {
+				layer.msg('日限量不能大于月限量');
+				// $('#limit-setting-modal').modal('toggle');
+				return;
+			}
+			if(temp.week_max && temp.month_max && parseInt(temp.week_max) > parseInt(temp.month_max)) {
+				layer.msg('月限量不能小于周限量');
+				// $('#limit-setting-modal').modal('toggle');
+				return;
+			}
+		}
+		saveData.agent_rule_list = list;
+		saveDataFn(saveData);
+	});
+
+	function saveDataFn(saveData) {
+		if(saveData.id) {
+
+		} else {
+			delete saveData.id;
+		};
+		EditIsSave = 2;
+		var index = layer.load();
+//		$('#limit-setting-modal-body').html("");
+		$ajax.ajaxPost('/rule/save_agent_rule.do', {
+			content: JSON.stringify(saveData)
+		}, function(data) {
+			layer.close(index);
+			if(data.success) {
+				layer.msg("操作成功！");
+//				getAllGoodsList();
+//				editGoodsRuleList();
+				// window.location.reload();
+				// $('#limit-setting-modal').modal('hide');
+				// getAgencyList(1);
+				//location.href = 'agent-rule-list.html';
+			} else {
+				layer.msg("操作失败！");
+			}
+		});
+	};
+	$('#limit-setting-modal').on('hidden.bs.modal', function(e) {
+		// do something...
+		if(EditIsSave == 2) {
+			location.href = 'agent-rule-list.html';
+		};
+
+	})
+	$('#create-rule-btn').click(function() {
+		location.href = 'agent-rule-list.html?type=new';
+	});
+	$("#goods_list").on("change", function() {
+		var id = $("#goods_list").find("option:selected").attr("data_id");
+		pram.spu_id = parseInt(id);
+		if($(this).attr("data_is_new") == 1) { // 编辑
+			editGoodsRuleList();
+		} else if($(this).attr("data_is_new") == 2) { // 新建
+			newGoodsRuleList();
+		}
+	});
+	$("body").on("keyup", ".limit-num", function() {
+		var value = $(this).val().trim();
+
+		var re = /\D/g;
+		if(re.test(value)) {
+			$(this).val("");
+		};
+		var re00 = /^0\d+/;
+		//var re = /^\0{0,6}/;
+		if(re00.test(value)) {
+			$(this).val("");
+		};
+	});
+});

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Note there is no responsive meta tag here -->
+    <link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+    <title>微商管理</title>
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/goods-base-new.css?v=2.0.32" rel="stylesheet">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/skin/layer.css" type="text/css">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/autho-book-setting.css?v=2.0.32" rel="stylesheet">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+    <input type="hidden" name="nav-active" value="11">
+    <input type="hidden" name="menu-active" value="1103">
+    <div class="container main-container">
+        <div class="left-bar" id="menu-container">
+
+        </div>
+        <div class="right-bar">
+            <div class="btn-group nav-select">
+                <a class="btn btn-default selected">商品添加</a>
+            </div>
+            <form class="user-container">
+                <ul>
+                    <li>
+                        <span class="span-left">商品名称：</span>
+                        <input id="goods_name" placeholder="请输入商品名" type="text" maxlength="50" class="form-control input-long" />
+                    </li>
+                    <li>
+                        <span class="span-left">商品编码：</span>
+                        <input id="goods_code" placeholder="请输入商品编码" type="text" maxlength="50" class="form-control input-long" />
+                    </li>
+                    <li>
+                        <span class="span-left">商品图片：</span>
+                        <div class="img_box">
+                            <div class="add_box" id="add_img_goods">
+                                <span class="icon">+</span>
+                                <span class="img"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="span-left">商品单位：</span>
+                        <input id="goods_company" placeholder="请输入商品单位" type="text" maxlength="50" class="form-control input-long" />
+                    </li>
+                    <li>
+                        <span class="span-left">商品价格：</span>
+                        <input id="goods_price" type="text" placeholder="请输入商品价格" maxlength="50" class="form-control input-long" />
+                    </li>
+                    <li>
+                        <p class="span-left">商品说明：</p>
+                        <textarea maxlength="200" placeholder="请输入商品说明" style="width: 60%;" class="form-control" rows="3" id="goods_explain"></textarea>
+                    </li>
+                </ul>
+            </form>
+            <div class="next-div">
+                <button type="button" class="btn btn-success" id="addChoiceGoods">保存</button>
+            </div>
+            <div id="img-select-modal-container"></div>
+        </div>
+    </div>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/webuploader-0.1.5/webuploader.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+    <script type="text/javascript" src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/ueditor1_4_3_3/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/ueditor1_4_3_3/ueditor.all.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/activity-addGoods-management.js?v=2.0.32"></script>
+</body>
+
+</html>

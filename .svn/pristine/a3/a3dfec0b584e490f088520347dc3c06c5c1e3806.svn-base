@@ -1,0 +1,41 @@
+.right-bar {
+	.nav-select .selected {
+		border-bottom: none;
+	}
+	.btn-group .btn {
+	    border-radius: 0;
+	}
+	.item-list {
+		.form-inline {
+			margin: 5px 0;
+		}
+		.form-control-static {
+		    min-width: 120px;
+		    text-align: right;
+		}
+	}
+
+	.middle-condition {
+		margin: 5px 0;
+		.form-group {
+		    width: 130px;
+		}
+		.form-control {
+		    width: 100%;
+		}
+		.inline-btn {
+			width: auto;
+		}
+	}
+	tr th,tr td {
+		text-align: center;
+	}
+	.table {
+		margin-bottom: 5px;
+	}
+}
+.check-process {
+	span {
+		font-weight: bold;
+	}
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link href="@static_2_path/css/goods-management.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/layer/skin/layer.css" type="text/css">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="05">
+	<input type="hidden" name="menu-active" value="0501">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <a class="btn btn-default selected" href="goods-management.html">商品管理</a>
+			  <a type="button" class="btn btn-default" href="goods-garbage.html">回收站</a>
+			  <!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<div class="user-container" id="user-container">
+				<button type="button" class="btn btn-success add_goods" id="add_goods"><a href="goods-base-new.html">+添加商品</a></button>
+				<form class="search-key">
+					<input class="form-control user-input" maxlength="20" id="goods_name" placeholder="商品名">
+					<select class="form-control user-input" id="goods_cate">
+						<option value="">请选择品类</option>
+					</select>
+					<select class="form-control user-input" id="goods_status">
+					  <option value ="">所有状态</option>
+					  <option value ="0">新建</option>
+					  <option value ="1">上架</option>
+					  <option value="2">下架</option>
+					</select>
+				</form>
+				<button type="button" class="btn btn-success" id="searcher">查询</button>
+				
+				<table class="table table-striped table-bordered table-hover user-table" id="table" >
+				  <thead>
+				  	<tr class="getThead">
+					    <!-- <th><input name="choose" type="checkbox" id="checked" value="" /></th>
+					    <th>商品</th>
+					    <th>规格</th>
+					    <th>价格</th>
+					    <th>发货方</th>
+					    <th>库存</th>
+					    <th>分类</th>
+					    <th>状态</th>
+					    <th>操作</th> -->
+					</tr>
+					<tbody id="table-body"></tbody>
+				  </thead>
+				</table>
+				<button type="button" class="btn btn-success btn_click" id="grounding" disabled="true">上架</button>
+				<button type="button" class="btn btn-success btn_click" id="undercarriage" disabled="true">下架</button>
+				<button type="button" class="btn btn-success btn_click" id="garbage" disabled="true">加入回收站</button>
+				<div id="pager"></div>
+			</div>
+		</div>
+	</div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_2_path/bundle/goods-management.js?v=@version"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "code": 10000,
+  "msg": "请求处理成功",
+  "data": {
+      "data": [
+          {   "operator": "admin",
+              "time": "2016-12-06 17:43:01",
+              "operation": "增加",
+              "remark": "因为XXXXXXXXXXX"
+          },
+          {   "operator": "admin",
+              "time": "2016-12-06 17:43:01",
+              "operation": "增加",
+              "remark": "因为XXXXXXXXXXX"
+          },
+          {   "operator": "admin",
+              "time": "2016-12-06 17:43:01",
+              "operation": "增加",
+              "remark": "因为XXXXXXXXXXX"
+          },
+          {   "operator": "admin",
+              "time": "2016-12-06 17:43:01",
+              "operation": "增加",
+              "remark": "因为XXXXXXXXXXX"
+          },
+          {   "operator": "admin",
+              "time": "2016-12-06 17:43:01",
+              "operation": "增加",
+              "remark": "因为XXXXXXXXXXX"
+          },
+          {   "operator": "admin",
+              "time": "2016-12-06 17:43:01",
+              "operation": "增加",
+              "remark": "因为XXXXXXXXXXX"
+          }
+      ]
+  }
+}

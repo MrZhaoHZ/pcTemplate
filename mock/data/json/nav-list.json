@@ -1,0 +1,38 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 1,
+        "name": "管理首页",
+        "href": "index.html"
+      },
+      {
+        "id": 2,
+        "name": "代理管理",
+        "href": "index.html"
+      },
+      {
+        "id": 3,
+        "name": "帐户管理",
+        "href": "index.html"
+      },
+      {
+        "id": 4,
+        "name": "商品管理",
+        "href": "index.html"
+      },
+      {
+        "id": 5,
+        "name": "业务管理",
+        "href": "user-management.html"
+      },
+      {
+        "id": 6,
+        "name": "系统管理",
+        "href": "role-management.html"
+      }
+    ]
+  }
+}

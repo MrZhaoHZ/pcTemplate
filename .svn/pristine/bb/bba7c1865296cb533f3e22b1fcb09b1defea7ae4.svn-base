@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/agent-team.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="03">
+<input type="hidden" name="menu-active" value="0301">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+		<!-- <ul>
+			<li class="active"><a href="agency-list.html" data-id="1">代理商列表</a></li>
+			<li><a href="department.html" data-id="2">部门管理</a></li>
+			<li><a href="employee.html" data-id="3">员工管理</a></li>
+			<li><a href="role-management.html" data-id="4">角色管理</a></li>
+		</ul> -->
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select">
+		  <a type="button" class="btn btn-default selected" href="role-management.html">团队</a>
+		</div>
+		<br><br>
+		<div id="team-info">
+			<!-- 直接下级：<span class="numspan">8</span>
+			下级总人数：<span class="numspan">388</span>
+			<button type="button" class="btn btn-success" id="translation-btn">平移</button>
+			<div class="team-select">
+				<span class="up-agency active" id="see-up">看上级</span><span class="down-agency" id="see-down">看下级</span>
+				&nbsp;&nbsp;<span>刷新</span>
+				<div class="level-info">
+					<div class="item">
+						<span>直接下级</span>
+						<div class="inner">
+							<p>姓名-当前级别</p>
+							<p>姓名-当前级别</p>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="translation-modal">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">代理商-平移</h4>
+	  </div>
+	  <div class="modal-body">
+		<!-- <p>
+		是否开启:
+		<label class="radio-inline">
+		  <input type="radio" name="isOpen" value="1"> 是
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="isOpen" value="2"> 否
+		</label>
+		</p>
+		<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型:
+		<label class="radio-inline">
+		  <input type="radio" name="limit-type" value="1"> 团队
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="limit-type" value="2"> 个人
+		</label>
+		</p> -->
+		<div>
+			<!-- <table class="table table-bordered">
+			  <thead>
+				<tr>
+				  <th>选择</th>
+				  <th>姓名</th>
+				  <th>等级</th>
+				  <th>手机</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table> -->
+			<!-- <table class="table table-bordered tab-content-center">
+			  <thead>
+				<tr>
+				  <th>选择</th>
+				  <th>姓名</th>
+				  <th>等级</th>
+				  <th>手机</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			  		<td colspan="4">
+				  		<div class="form-inline" style="text-align: left;">
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="name" placeholder="姓名">
+						  </div>
+						  <div class="form-group">
+						    <input type="email" class="form-control" id="phone" placeholder="手机">
+						  </div>
+						  <button class="btn btn-default">查询</button>
+						</div>
+					</td>
+			  	</tr>
+				<tr>
+				  <td>
+				  	<input type="radio" name="isOpen" value="2">
+				  </td>
+				  <td>某某</td>
+				  <td>董事</td>
+				  <td>13888888888</td>
+				</tr>
+			  </tbody>
+			</table> -->
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+		<button type="button" class="btn btn-primary" id="save-translation-btn">保存设置</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/agent-team.js?v=2.0.32"></script>
+</body>
+</html>

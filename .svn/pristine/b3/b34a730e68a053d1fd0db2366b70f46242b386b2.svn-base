@@ -1,0 +1,29 @@
+body {
+	background: #D7D7D7;
+}
+.left-bar {
+	float: left;
+	padding: 15px 0;
+	width: 15%;
+	height: 600px;
+	background: #fff;
+	border-right: 1px solid #C9C9C9;
+	ul {
+		padding: 0;
+		li {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 20px;
+			&.active {
+				background: #C9C9C9;
+			}
+		}
+	}
+}
+.right-bar {
+	float: left;
+	width: 85%;
+	min-height: 600px;
+	overflow-y: hidden;
+	background: #E4D5D5;
+}

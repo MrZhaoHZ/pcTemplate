@@ -1,0 +1,31 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 0,
+        "name": "一叶子微商",
+        "open": true
+      },
+      {
+        "id": 1,
+        "pId": 0,
+        "name": "市场部",
+        "open": true,
+        "url": "department-detail.html?type=edit&id=11",
+        "target": "_self"
+      },
+      {
+        "id": 2,
+        "pId": 0,
+        "name": "销售部"
+      },
+      {
+        "id": 3,
+        "pId": 0,
+        "name": "行政部"
+      }
+    ]
+  }
+}

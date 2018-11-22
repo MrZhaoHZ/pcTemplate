@@ -1,0 +1,87 @@
+.right-bar {
+	// padding: 15px 0 0 15px;
+	.btn-group {
+		.btn {
+			border-radius: 0;
+		}
+	}
+	.nav-select {
+		// margin: 15px 0 0 15px;
+		.selected {
+			border-bottom: none;
+		}
+	}
+	.user-container {
+		margin-top: 18px;
+		.search-key{
+			margin-top: 20px;
+			.user-input{
+				width: 135px;
+				float: left;
+				margin-right: 15px;
+			}
+		}
+		.user-table{
+			margin: 18px 15px 18px 0;
+			tr{
+				vertical-align: middle;
+				text-align: center;
+				td{
+					vertical-align: middle;
+					img{
+						width: 50px;
+					}
+					
+				}
+			}
+			th{
+				text-align: center;
+				background-color: #d7d7d7;
+			}
+			a{
+				cursor: pointer;
+			}
+		}
+	}
+}
+.link{
+	word-break: break-word;
+    width: 200px;
+}
+.prompt{
+	text-align: center;
+    font-size: 32px;
+    color: #797272;
+}
+.enable{
+	color: #ff0000;
+}
+.color-red{
+	color: red;
+}
+#myModal .modal-body{
+	div{
+		height: 50px;
+		overflow: hidden;
+		.span-title{
+			float: left;
+			line-height: 30px;
+			display: inline-block;
+		}
+		.options{
+			float: left;
+			width: 135px;
+			display: inline-block;
+		}
+		.input-reason{
+			display: inline-block;
+			float: left;
+			width: 270px;
+			height: 150px;
+		}
+	}
+	.operation-reason{
+		height: 150px;
+	}
+	
+}

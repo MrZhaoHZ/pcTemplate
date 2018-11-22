@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/login.css?v=2.0.32" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="login-box">
+		<div class="form-title">用户登录</div>
+		<form class="login-form">
+			<fieldset>
+				<div class="form-group">
+					<img class="img-left" src="../images/user.jpg">
+					<input type="text" id="name" maxlength="20" placeholder="请输入用户名" />
+				</div>
+				<div class="form-group">
+					<img class="img-left" src="../images/pwdlock.jpg">
+					<input type="password" id="pwd" maxlength="20" placeholder="请输入6-20位密码" />
+				</div>
+				<div class="form-group">
+					<input id="check-num" maxlength="4" class="input-num" placeholder="验证码" />
+					<img  class="check-img" title="看不清换一张" id="imgValicode" src=""/>
+				</div>
+				<span class="tips" id="tips"></span>
+				<button class="btn btn-large btn-block log" id="submit" type="button">登录</button>
+			</fieldset>
+		</form>
+	</div>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/md5/md5.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/RSA/RSA.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/login.js?v=2.0.32"></script>
+</body>
+</html>

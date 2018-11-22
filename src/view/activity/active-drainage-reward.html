@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Note there is no responsive meta tag here -->
+    <link rel="icon" href="@static_path/favicon.ico">
+    <title>微商管理</title>
+    <link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+    <link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+    <link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="@static_path/libs/select2/css/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+    <link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.1.css" type="text/css">
+    <link href="@static_path/css/activity-set.css?v=@version" rel="stylesheet">
+    <link href="@static_path/css/agent-list.css?v=@version" rel="stylesheet">
+</head>
+
+<body>
+    <input type="hidden" name="nav-active" value="11">
+    <input type="hidden" name="menu-active" value="1105">
+    <div class="container main-container">
+        <div class="left-bar" id="menu-container">
+           
+        </div>
+        <div class="right-bar" id="right-bar-container">
+            <!-- Nav tabs -->
+            <ul id="ullist" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="order">
+                    <a href="#order" aria-controls="order" role="tab" data-toggle="tab">订单统计</a>
+                </li>
+                <li role="presentation" class="stock">
+                    <a href="#stock" aria-controls="stock" role="tab" data-toggle="tab">库存展示</a>
+                </li>
+                <li role="presentation" class="drainage">
+                    <a href="#drainage" aria-controls="drainage" role="drainage" data-toggle="tab">引流数量</a>
+                </li>
+                <li role="presentation" class="draw">
+                    <a href="#draw" aria-controls="draw" role="tab" data-toggle="tab">抽奖详情</a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="#reward" aria-controls="reward" role="tab" data-toggle="tab">引流奖励</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="reward">
+                    <div class="form-inline middle-condition topLevelContainer" id="rewardContainer"></div>
+                    <div class="form-inline" style="float:left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="姓名" id="reward_naem">
+                        </div>
+                        <div class="form-group" style="margin-left:15px">
+                            <input type="text" class="form-control" placeholder="手机号" id="reward_name">
+                        </div>
+                    </div>
+                    <div class="form-inline" style="float: right">
+                        <button type="button" class="btn btn-success" style="width : 100px" id="reward-check">查询</button>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-inline" style="margin:10px 0">
+                        <div class="form-group">
+                            奖励总次数：
+                            <a id="reward_num" data-id=""></a>
+                        </div>
+                        <div class="form-group" style="margin-left:15px">
+                            奖励总金额：
+                            <a id="amount_num" style="color:#000"></a>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover user-table" id="">
+                        <thead>
+                            <tr>
+                                <th>会员名</th>
+                                <th>手机号</th>
+                                <th>微信号</th>
+                                <th>奖励金额</th>
+                                <th>出奖时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reward_table">
+                        </tbody>
+                    </table>
+                    <div id="reward_table_pager" class="pager"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+        <script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+        <script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+        <script src="@static_path/libs/doT-master/doT.min.js"></script>
+        <script src="@static_path/libs/select2/js/select2.min.js"></script>
+        <script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+        <script src="@static_path/libs/layer/layer.js"></script>
+        <script src="@static_path/libs/jquery.ui/jquery-ui.min.js"></script>
+        <script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+        <script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+        <script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+        <script src="@static_path/bundle/main.js?v=@version"></script>
+        <script src="@static_path/bundle/active-drainage-reward.js?v=@version"></script>
+</body>
+
+</html>

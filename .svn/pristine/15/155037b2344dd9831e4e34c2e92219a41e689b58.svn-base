@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<!-- <link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui.css" type="text/css"> -->
+	<!-- <link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css"> -->
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/css/employee-list.css?v=@version" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="09">
+<input type="hidden" name="menu-active" value="0901">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+		<!-- <ul>
+			<li class="active"><a href="agency-list.html" data-id="1">代理商列表</a></li>
+			<li><a href="department.html" data-id="2">部门管理</a></li>
+			<li><a href="employee.html" data-id="3">员工管理</a></li>
+			<li><a href="role-management.html" data-id="4">角色管理</a></li>
+		</ul> -->
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a type="button" class="btn btn-default selected" href="employee-list.html">员工列表</a>
+		  <a type="button" class="btn btn-default" href="department-list.html">部门列表</a>
+		</div>
+		<br>
+		<br>
+		<div class="form-inline middle-condition">
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="姓名" id="search-name">
+		  </div>
+		  <div class="form-group">
+			<div class="form-group">
+			<select class="form-control" id="dep-select">
+			  <!-- <option>总部</option>
+			  <option>市场部</option>
+			  <option>销售部</option> -->
+			</select>
+		  </div>
+		  </div>
+		  <div class="form-group inline-btn">
+			<button type="button" class="btn btn-success" id="search-btn">查询</button>
+			<a href="employee.html" class="btn btn-success">新建员工</a>
+		  </div>
+		</div>
+		<div class="item-list">
+			<table class="table table-bordered" id="table-container">
+			  <thead>
+				<tr>
+				  <!-- <th><input type="checkbox" class="select-all"></th> -->
+				  <th>姓名</th>
+				  <th>性别</th>
+				  <th>年龄</th>
+				  <th>手机</th>
+				  <th>部门</th>
+				  <th>用户身份</th>
+				  <th>操作</th>
+				</tr>
+			  </thead>
+			  <tbody id="emp-list">
+				<!-- <tr data-id="">
+				  <td><input type="checkbox" name="selectItem"></td>
+				  <td>黄某某</td>
+				  <td>难</td>
+				  <td>36</td>
+				  <td>138</td>
+				  <td>市场部</td>
+				  <td>操作员</td>
+				  <td><a href="employee.html?id=3">编辑</a>&nbsp;<a href="">删除</a></td>
+				</tr> -->
+			  </tbody>
+			</table>
+		</div>
+		<div>
+			<!-- <button type="button" class="btn btn-success">批量删除</button> -->
+			<div id="pager"></div>
+		</div>
+	</div>
+</div>
+
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<!-- <script src="@static_path/libs/jquery.ui/jquery-ui.min.js"></script> -->
+<!-- <script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script> -->
+<!-- <script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script> -->
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_path/bundle/employee-list.js?v=@version"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/css/zTreeStyle/zTreeStyle.min.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/select2/css/select2.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/account-batch-clear.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="04">
+<input type="hidden" name="menu-active" value="0404">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a type="button" class="btn btn-default selected" href="javascript:void(0);">账户批量清零</a>
+		</div>
+		<br><br>
+		<div class="form-inline middle-condition topLevelContainer" id="topLevelContainer">
+			<!-- <div class="form-group" style="margin-right: 0;">
+				<select class="form-control selectcommon topLevelNameClass1" data-selectIndex="1">
+				  <optgroup label="董事">
+				     <option value="0">agent001</option>
+					  <option value="1">agent002</option>
+					  <option value="2">agent003</option>
+				  </optgroup>
+				</select>
+			  </div> -->
+		</div>
+		<!-- <div class="form-inline" style="display: none;">
+		  <div class="form-group">
+			<select class="form-control" id="all-team">
+			</select>
+		  </div>
+		  <div class="form-group">
+			<select class="form-control" id="all-team-child" style="display: none;">
+			</select>
+		  </div>
+		</div> -->
+		<div class="form-inline middle-condition">
+		  <div class="form-group">
+			<select class="form-control" id="agent_grade">
+			</select>
+		  </div>
+		<div class="form-inline">
+		  <div class="form-group">
+			<button type="button" class="btn btn-success " disabled="disabled" id="filter-btn">账户全部清零</button>
+		  </div>
+		</div>
+		<table class="table table-bordered tab-content-center" id="agency-list">
+		  <!-- <thead>
+			<tr>
+			  <th>姓名</th>
+			  <th>手机号</th>
+			  <th>货款</th>
+			  <th>级别</th>
+			  <th>直属上级</th>
+			  <th>顶级</th>
+			  <th>直属人数</th>
+			  <th>团队人数</th>
+			  <th>状态</th>
+			  <th>操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td>***</td>
+			  <td>13888888888</td>
+			  <td>￥1000.00</td>
+			  <td>官方</td>
+			  <td></td>
+			  <td></td>
+			  <td>1</td>
+			  <td>3</td>
+			  <td>正常</td>
+			  <td><a href="">详情</a>&nbsp;<a href="">团队</a>&nbsp;<a href="">操作日志</a></td>
+			</tr>
+		  </tbody> -->
+		</table>
+		<div id="nodata-tips" style="display: none;padding: 50px;text-align: center;">暂无数据</div>
+		<div id="pager"></div>
+	</div>
+</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/select2/js/select2.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/account-batch-clear.js?v=2.0.32"></script>
+</body>
+</html>

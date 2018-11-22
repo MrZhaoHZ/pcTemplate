@@ -1,0 +1,32 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 1,
+        "pid": 6,
+        "name": "用户管理",
+        "href": "user-management.html"
+      },
+      {
+        "id": 2,
+        "pid": 6,
+        "name": "部门管理",
+        "href": "department.html"
+      },
+      {
+        "id": 3,
+        "pid": 6,
+        "name": "员工管理",
+        "href": "employee.html"
+      },
+      {
+        "id": 4,
+        "pid": 6,
+        "name": "角色管理",
+        "href": "role-management.html"
+      }
+    ]
+  }
+}

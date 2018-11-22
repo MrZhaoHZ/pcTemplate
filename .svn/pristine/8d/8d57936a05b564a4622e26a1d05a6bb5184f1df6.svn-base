@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="嗨云"/>
+    <meta name="description" content="嗨云"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
+    <title>购物袋</title>
+    <link rel="stylesheet" href="http://assets.haiyn.com/mk/ctrl-bottombar/1.2.8/bottombar.css"/>
+    <link rel="stylesheet" href="http://assets.haiyn.com/mk/ctrl-topbar/1.0.0/topbar.css"/>
+    <link rel="stylesheet" href="http://assets.haiyn.com/mk/ctrl-number/1.0.3/number.css"/>
+    <link rel="stylesheet" href="http://assets.haiyn.com/mk/lib-notification/1.0.0/notification.css"/>
+    <link href="./build/cart.css?v=1.0.7" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+    <!--购物袋商品列表-->
+    <div class="main" id="mainItem"></div>
+
+    <!-- 换购商品弹框 -->
+    <div class="pro-dialog" id="pro-box">
+        <div class="pro-item-info">
+            <div class="item-body">
+                <p class="pro-title">&nbsp;&nbsp;换购商品</p>
+            </div>
+            <span class="pro-close pro-cancel"></span>
+        </div>
+        <div class="pro-content pro-item">
+            <ul id="pro-content"></ul>
+        </div>
+        <div class="pro-confirm pro-item">
+            <p>已换购<span class="already-exchange">0</span>/<span>1</span>件</p>
+            <a id="confirm" class="confirm addTo">确认</a>
+        </div>
+    </div>
+
+    <!--底部-->
+    <div class="control">
+        <div class="pay-tan"><p>一个订单商品总额不得超过2000元，请分开结算，海关规定每个订单多件商品总计低于￥2000才可以过关</p></div>
+        <div class="check-box all"><input type="checkbox" id="selectAll"/><span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span> <em>全选</em></div>
+        <div class="item-content">
+            <div class="one">(已含关税)</div>
+            <div class="two">(已免关税)</div>
+            <p>
+                <span class="pay-info"><span>合计：</span><span class="symbol">&yen;</span><span class="pay-num">0.00</span></span>
+                <a id="pay" class="toPay main-btn">去结算</a>
+                <a id="delete" class="unmain-btn">删除</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- 遮罩 -->
+    <div class="mask"></div>
+</div>
+
+<script type="text/template" id="tpl-barterItem">
+    <% if(data){ %>
+    <% _.each(data, function(item_data,i){%>
+        <div class="module <% if(item_data[0]&&item_data[0].type=='barter'){%>barter-module<% }else if(item_data[0]&&item_data[0].type=='cut'){ %>cut-module<% } %>" <% if(item_data[0]&&item_data[0].type=='barter'){%>id="barter-<%= i %>"<%}%>>
+           <!--  <div class="module-head">
+                <div class="check-box">
+                    <input type="checkbox" class="checkbox top-check"/>
+                    <span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span>
+                </div>
+                <div class="head-content">
+                    <% if(item_data[0] && item_data[0].type=='barter'){%>
+                        <% if(_.size(item_data[0].activity_uid_list)>1){%>
+                            <div class="content"><span class="tag">换购</span>活动商品
+                            <% var num=0; _.each(item_data[0].activity_uid_list, function(it, it_index){%>
+                                <% if (actData[it].type != 'ReachMultipleReduceTool') { num++; %>
+                                <% if(num > 1){%>，或<%}%>满<span><%= HDL.pricetwo(actData[it].consume) %></span>元
+                                <% } %>
+                            <% }); %>
+                            ，即可换购商品</div>
+                        <% }else if(_.size(item_data[0].activity_uid_list)==1){ %>
+                        <div class="content"><span class="tag">换购</span>活动商品满<span><%= HDL.pricetwo(actData[item_data[0].activity_uid_list[0]].consume) %></span>元，您只需加价<span><%= HDL.pricetwo(actData[item_data[0].activity_uid_list[0]].discount) %></span>元，即可换购商品</div>
+                        <% } %>
+                        <a class="barter-btn" href="javascript:;" data-activity-uid="<% _.each(item_data[0].activity_uid_list, function(it, it_index){%><%= it %>/<% }); %>">换购商品</a>
+                        <a class="barter-btn-hidden" href="javascript:;"></a>
+                    <% }else if(item_data[0]&&item_data[0].type=='cut'){ %>
+                        <div class="content">
+                            <div class="content"><span class="tag">满减送</span>活动商品
+                                <% _.each(item_data[0].activity_uid_list, function(it, it_index){%>
+                                <% if(it_index){%>，<%}%>满<span><%= HDL.pricetwo(actData[it].consume) %></span>元立减<%= HDL.pricetwo(actData[it].discount) %>元
+                                <% }); %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div> -->
+            <ul class="<% if(item_data[0]&&item_data[0].type=='barter'){%>barter-list<% }else if(item_data[0]&&item_data[0].type=='cut'){ %>cut-list<% } %> item-list">
+                <% _.each(item_data, function(item){%>
+                <li cart_item_uid="<%= item.cart_item_uid%>" item_type="<%= item.item_type%>" item_uid="<%= item.item_uid%>" sku_uid="<%= item.sku_uid %>" price="<% if(item.promotion_price){ %><%= item.promotion_price %><% } %>" origin_price="<%= item.market_price %>" defnum="<%= item.number < 1 ? 1 : item.number %>">
+                   <!--  <div class="item-box">
+                        <div class="check-box">
+                            <input type="checkbox" class="check-item checkbox"/>
+                            <span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span>
+                        </div>
+                        <a href="detail.html?item_uid=<%= item.item_uid %>">
+                            <img class="lazy img" src="http://placehold.it/180x180" dataimg="<%= item.icon_url %>" alt=""/>
+                            <div class="item-body">
+                                <p class="item-name"><% _.each(item.activity_uid_list, function(act){%><% if(actData[act].type == 'ReachMultipleReduceTool'){ %><span class="tag">满减送</span><%}%><% }); %><%= item.item_name %></p>
+                                <span class="item-sku"><%= item.sku_snapshot||item.item_sku_desc||'' %></span>
+                                <span class="item-price"><%= HDL.pricetwo(item.promotion_price) %></span>
+                                <%if(item.higo_mark){%>
+                                <span class="suit-suifee" data-suifee="<%= item.higo_extra_info.tax_rate %>">税率:<span><%=HDL.pricetwo(item.higo_extra_info.tax_rate*100*100)+'%'%></span></span>
+                                <%}%>
+                            </div>
+                        </a>
+                    </div> -->
+                    <div class="item-number-box">
+                        <div class="number-box J_Num1" defnum="<%= item.number < 1 ? 1 : item.number %>"></div>
+                    </div>
+                    <% if(item.service_list){ %>
+                    <ul class="item-service-list">
+                        <% _.each(item.service_list, function(it){ %>
+                        <li data-service-uid="<%= it.service_uid %>" data-price="<%= it.service_price %>">
+                            <p><%= it.service_name %></p>
+                            <div class="service-price"><%= HDL.pricetwo(it.service_price) %></div>
+                        </li>
+                        <% }); %>
+                    </ul>
+                    <% } %>
+                </li>
+                <% }); %>
+            </ul>
+            <% if(item_data[0]&&item_data[0].type=='barter'){%>
+            <div class="barter-module-footer clearfix">
+                <span class="module-total-price">0.00</span>
+                <a class="barter-cancel" href="javascript:;">取消换购</a>
+            </div>
+            <% } %>
+        </div>
+    <%});%>
+    <% } %>
+</script>
+
+<script type="text/template" id="tpl-suitItem">
+    <% if(data){ %>
+    <% _.each(data, function(item_data,i){%>
+    <div class="module suit-module" cart_item_uid="<%= item_data.cart_item_uid%>" item_type="<%= item_data.item_type %>" item_uid="<%= item_data.item_uid %>" sku_uid="<%= item_data.sku_uid %>" price="<% if(item_data.promotion_price){ %><%= item_data.promotion_price %><% } %>" origin_price="<%= item_data.market_price %>">
+        <!-- <div class="module-head">
+            <div class="check-box">
+                <input type="checkbox" class="check-item checkbox"/>
+                <span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span>
+            </div>
+            <div class="head-content">
+                <div class="content">
+                    <span class="tag">套装</span>
+                </div>
+                <div class="suit-number-box number-box J_Num1" defnum="<%= item_data.number < 1 ? 1 : item_data.number %>" data-item-number="<%= item_data.activity_info.item_list.length %>"></div>
+            </div>
+        </div> -->
+        <ul class="suit-list item-list">
+            <% _.each(item_data.activity_info.item_list, function(item, index){%>
+            <li>
+                <div class="item-box">
+                    <a href="detail.html?item_uid=<%= item.item_uid %>">
+                        <img class="lazy img" src="http://img01.taojae.com/party/de48eae158ea9ffca7706191651d3453.png" dataimg="<%= item.icon_url %>" alt=""/>
+                        <div class="item-body">
+                            <p class="item-name"><%= item.item_name %></p>
+                            <span class="item-sku"><%= item.sku_snapshot||item.item_sku_desc||'' %></span>
+                            <span class="item-price"><%= HDL.pricetwo(item.promotion_price) %></span>
+                        </div>
+                    </a>
+                </div>
+                <% if(item.service_list){ %>
+                <ul class="item-service-list">
+                    <% _.each(item.service_list, function(it){ %>
+                    <li data-service-uid="<%= it.service_uid %>" data-price="<%= it.service_price %>">
+                        <p><%= it.service_name %></p>
+                        <div class="service-price"><%= HDL.pricetwo(it.service_price) %></div>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } %>
+            </li>
+            <% }); %>
+        </ul>
+        <div class="suit-module-footer">
+            <span class="module-total-price"><%= HDL.pricetwo(item_data.promotion_price) %></span>
+            <%if(item_data.higo_mark){%>
+            <span class="suit-suifee" data-suifee="<%= item.higo_extra_info.tax_rate %>">税率:<span><%=HDL.pricetwo(item.higo_extra_info.tax_rate*100*100)+'%'%></span></span>
+            <%}%>
+        </div>
+    </div>
+    <%});%>
+    <% } %>
+</script>
+
+<!--------------------------------- 普通商品列表的展示 ------------------------------->
+<script type="text/template" id="tpl-item">
+    <% if(data){ %>
+    <% _.each(data, function(item,i){%>
+   <!--  <div class="module shop-module" data-disb_id="<%= item.distributor_id %>"> -->
+        <!-- <div class="module-head">
+            <div class="check-box">
+                <input type="checkbox" class="top-check checkbox" />
+                <span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span>
+            </div>
+            <a href="index.html?distributor_id=<%= item.distributor_id %>">
+                <span class="shop-icon"><img></span>
+                <span class="shop-name"><%= item.distributor_name %></span>
+            </a>
+        </div> -->
+        <% _.each(item.item_list, function(obj,n){ %>
+        <ul class="item-list">
+            <li seller_id="<%= item.distributor_id %>" cart_item_uid="<%= obj.cart_item_uid %>" item_type="<%= obj.item_type%>" item_uid="<%= obj.item_uid%>" sku_uid="<%= obj.sku_uid %>" price="<% if(obj.promotion_price){ %><%= obj.promotion_price %><% } %>" origin_price="<%= obj.market_price %>" defnum="<%= obj.number < 1 ? 1 : obj.number %>" data-stock_num="<%= obj.stock_num %>" data-max_num="<%= obj.sale_max_num %>" data-share_user_id="<%= obj.share_user_id %>">
+                <div class="item-box">
+                    <% if( obj.status == 2 || obj.stock_num <= 0 ){ %>
+                        <div class="check-box">
+                            <p class="check-abate">失效</p>
+                        </div>
+                    <% }else{ %>
+                        <div class="check-box">
+                            <input type="checkbox" class="check-item checkbox"/>
+                            <span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span>
+                        </div>
+                    <% } %>
+                    <div class="item-detail">
+                        <div class="item-img">
+                            <a href="detail.html?item_uid=<%= obj.item_uid %><% if(item.distributor_id){ %>&distributor_id=<% } %><%= item.distributor_id %><% if(obj.share_user_id){ %>&share_user_id=<% } %><%= obj.share_user_id %>">
+                            <img class="lazy img" src="http://img01.taojae.com/party/de48eae158ea9ffca7706191651d3453.png" dataimg="<%= obj.icon_url %>" alt=""/>
+                            <% if( obj.status ==2 || obj.stock_num <= 0 ){ %>
+                                <p class="info-abate">此商品暂时缺货</p>
+                            <% } %>
+                            </a>
+                        </div>
+                        <div class="item-body">
+                            <a href="detail.html?item_uid=<%= obj.item_uid %><% if(item.distributor_id){ %>&distributor_id=<% } %><%= item.distributor_id %><% if(obj.share_user_id){ %>&share_user_id=<% } %><%= obj.share_user_id %>">
+                            <p class="item-name"><%= obj.item_name %></p>
+                            <span class="item-sku"><%= obj.sku_snapshot||obj.item_sku_desc||'' %></span>
+                            <%if(obj.biz_mark_list){%>
+                            <div class="item-yx-icon">
+                                <% _.each(obj.biz_mark_list, function(biz_mark,j){ %>
+                                <%if(biz_mark.remark =='ReachMultipleReduceTool'){%>
+                                <span class="yx-icon">活动</span>
+                                <%}%>
+                                <%if(biz_mark.remark =='TimeRangeDiscount'){%>
+                                <span class="yx-icon">限时购</span>
+                                <%}%>
+                                <%})%>
+                            </div>
+                            <%}%>
+                            <%if(obj.biz_mark_list){%>
+                            <div class="item-yx-icon">
+                                <% _.each(obj.biz_mark_list, function(biz_mark,j){ %>
+                                <%if(biz_mark.remark =='ReachMultipleReduceTool'){%>
+                                <span class="yx-icon">活动</span>
+                                <%}%>
+                                <%})%>
+                            </div>
+                            <%}%>
+                            <%if(obj.higo_mark){%>
+                                <span class="suit-suifee" data-suifee="<%= obj.higo_extra_info.tax_rate %>">税率:<span><%=HDL.pricetwo(obj.higo_extra_info.tax_rate*100*100)+'%'%></span></span>
+                            <%}%>
+                            </a>
+                        </div>
+                        <div class="item-price"><span><%= HDL.pricetwo(obj.promotion_price) %></span></div>
+                        <% if( (obj.status == 2  || obj.stock_num <= 0) ){ %>
+                        <div class="item-number-box" data-status="2">
+                        <% }else{ %>
+                        <div class="item-number-box">
+                        <% } %>
+                            <% if( !(obj.status == 2  || obj.stock_num <= 0) ){ %>
+                                <% if( obj.sale_max_num > 0 ){ %>
+                                    <span class="item-max-info">（限购<%= obj.sale_max_num %>件）</span>
+                                <% }else{ %>
+                                    <% if(obj.number >= obj.stock_num){ %>
+                                        <span class="item-stockout-info">（库存不足）</span>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                            <span></span>
+                            <div class="number-box J_Num1" defnum="<%= obj.number < 1 ? 1 : obj.number %>"></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:;" class="item-del-goods"></a>
+                <% if(obj.service_list){ %>
+                <ul class="item-service-list">
+                    <% _.each(obj.service_list, function(it){ %>
+                    <li data-service-uid="<%= it.service_uid %>" data-price="<%= it.service_price %>">
+                        <p><%= it.service_name %></p>
+                        <div class="service-price"><%= HDL.pricetwo(it.service_price) %></div>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } %>
+            </li>
+        </ul>
+        <% }) %>
+    <!-- </div> -->
+    <%});%>
+    <% } %>
+</script>
+
+<script type="text/template" id="tpl-barter-item">
+    <% if(data){%>
+    <li class="barter-item chosen-barter-item" activity-uid="<%= data.activity_uid %>" item-uid="<%= data.item_uid %>" sku-uid="<%= data.sku_uid %>" data-price="<%= data.price %>">
+        <div class="item-box">
+            <a href="detail.html?item_uid=<%= data.item_uid %>">
+                <img class="lazy img" src="http://img01.taojae.com/party/de48eae158ea9ffca7706191651d3453.png" dataimg="<%= data.icon_url %>" alt=""/>
+                <div class="item-body">
+                    <div class="item-name"><%= data.item_name %></div>
+                    <span class="item-sku"><%= data.sku_snapshot||data.item_sku_desc||'' %></span>
+                    <span class="item-price"><%= HDL.pricetwo(data.price) %></span>
+                    <%if(data.higo_mark){%>
+                    <span class="suit-suifee" data-suifee="<%= data.higo_extra_info.tax_rate %>">税率:<span><%=HDL.pricetwo(data.higo_extra_info.tax_rate*100*100)+'%'%></span></span>
+                    <%}%>
+                </div>
+            </a>
+        </div>
+    </li>
+    <% } %>
+</script>
+
+<script type="text/template" id="tpl-barter-list">
+    <% _.each(discount_list, function(item){%>
+    <% _.each(item.market_activity.target_item_list, function(it,index){%>
+    <li class="<% if(item.is_available == '1'){ %>available<% } %> <% if(chosenItemUid == it.item_uid ){%>checked<%}%>" sku-uid="<%= it.item_sku_uid %>" item-uid="<%= it.item_uid %>" data-name="<%= it.item_name %>" data-price="<%= item.discount_amount %>" data-sku_snapshot="<%= it.sku_snapshot||it.item_sku_desc||'' %>" activity-uid="<%= item.market_activity.activity_uid %>">
+        <div class="pro-img">
+            <img src="<%= it.icon_url %>"/>
+        </div>
+        <div class="pro-body">
+            <p class="title"><%= it.item_name %></p>
+            <div class="other-info">
+                <p class="subheading"><%= it.sku_snapshot||it.item_sku_desc||'' %></p>
+                <p class="price"><%= HDL.pricetwo(item.discount_amount) %></p>
+            </div>
+        </div>
+    </li>
+    <% }); %>
+    <%});%>
+</script>
+
+<script type="text/template" id="tpl-mainItem">
+    <% _.each(itemList, function (item) { %>
+    <div class="item-list">
+        <div class="item-checkbox">
+            <input type="checkbox" class="checkbox check-item" delivery_type="<%= item.delivery_type%>" item_type="<%= item.item_type%>" cart_item_uid="<%= item.cart_item_uid%>" item_uid="<%= item.item_uid%>" sku_uid="<%= item.sku_uid %>" price="<% if(item.promotion_price){ %><%= item.promotion_price %><% } %>" origin_price="<%= item.market_price %>" defnum="<%= item.number < 1 ? 1 : item.number %>"/>
+            <span class="iconfont icon" data-icon="&#xe609;">&#xe609;</span>
+        </div>
+        <div class="item-content">
+            <a href="detail.html?item_uid=<%= item.item_uid %>"><img class="lazy img item-img" dataimg="<%= item.icon_url %>" src="http://img01.taojae.com/party/de48eae158ea9ffca7706191651d3453.png"/></a>
+            <div class="item-body">
+                <div class="item-middle">
+                    <p class="item-name"><%= item.item_name %></p>
+                    <div class="nums">
+                        <div class="J_Num1" cart_item_uid="<%= item.cart_item_uid%>" item_uid="<%= item.item_uid%>" sku_uid="<%= item.sku_uid %>" price="<% if(item.wireless_price){ %><%= item.wireless_price %><% }else{ %><%= item.promotion_price %><% } %>" origin_price="<%= item.market_price %>" defnum="<%= item.number < 1 ? 1 : item.number %>"></div>
+                    </div>
+                </div>
+                <div class="item-price">
+                    <% if (item.promotion_price) {%>
+                    <span class="current-price">&yen;<%= HDL.price(item.promotion_price) %></span><br/>
+                    <% } %>
+
+                    <% if (item.market_price && item.promotion_price!=item.market_price) {%>
+                    <del class="origin-price">&yen;<%= HDL.price(item.market_price) %></del><br/>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</script>
+
+<script src="http://assets.haiyn.com/min?3rd/zepto.min.js,3rd/underscore-min.js"></script>
+<script src="http://assets.haiyn.com/min?mk/lib-httpurl/1.0.0/httpurl.js,mk/lib-api/1.4.4/api.js,mk/lib-login/1.3.3/login.js,mk/lib-mask/1.0.0/mask.js,mk/lib-slider/1.0.0/slider.js,mk/lib-storage/1.2.8/storage.js,mk/lib-lazyload/1.0.1/lazyload.js,mk/ctrl-topbar/1.0.0/topbar.js,mk/ctrl-number/1.0.3/number.js,mk/lib-gotop/1.0.2/gotop.js,mk/lib-notification/1.0.0/notification.js,mk/lib-infinitescroll/1.0.0/infinitescroll.js"></script>
+
+
+<script src="./build/mod/bottombar.js"></script>
+<script src="./build/cart.js?v=1.0.7"></script>
+</body>
+</html>

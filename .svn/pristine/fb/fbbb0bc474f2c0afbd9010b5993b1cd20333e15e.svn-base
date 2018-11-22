@@ -1,0 +1,33 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 1,
+        "name": "客服",
+        "description": "日常客户服务",
+        "sum": 3
+      },
+      {
+        "id": 2,
+        "name": "客服",
+        "description": "日常客户服务",
+        "sum": 3
+      },
+      {
+        "id": 3,
+        "name": "客服",
+        "description": "日常客户服务",
+        "sum": 3
+      },
+      {
+        "id": 4,
+        "name": "客服",
+        "description": "日常客户服务",
+        "sum": 3
+      }
+    ],
+    "totalCount": 15
+  }
+}

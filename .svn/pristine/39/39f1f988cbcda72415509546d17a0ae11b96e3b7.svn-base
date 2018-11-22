@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/content-imgText-setting-edit.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/skin/layer.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="08">
+	<input type="hidden" name="menu-active" value="0803">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <a class="btn btn-default selected" href="content-imgText-setting-edit.html">图文回复设置</a>
+			  <!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<form class="user-container">
+				<ul>
+					<li>
+						<span class="span-left">关键字：</span>
+						<input id="key_world" type="text" maxlength="100" class="form-control input-long" />
+						<span class="span-prompt">可设置多个关键字，每个关键字之间用空格隔开</span>
+					</li>
+					<li>
+						<span class="span-left">类型：</span>
+						<input type="radio" name="optionsStatus" class="radio-input" value="0">
+						<span>文字回复</span>
+						<input type="radio" name="optionsStatus" class="radio-input" value="1">
+						<span>图文回复</span><i class="fa fa-align-justify" aria-hidden="true"></i>
+					</li>
+				</ul>
+			</form>
+			<div class="text">
+				<span class="span-left">回复内容：</span>
+				<textarea id="text_reply" class="form-control user-content"></textarea>
+			</div>
+			<div class="block">
+				<p class="title">设置图文：</p>
+				<div class="per_block">
+					<p>
+						<span class="left">标题：</span>
+						<input class="right form-control title" />
+						<button type="button" class="btn btn-success add_article">选择文章</button>
+					</p>
+					<p>
+						<span class="info left">描述：</span>
+						<input maxlength="200" class="right form-control info" />
+					</p>
+					<p>
+						<span class="left">图片：</span>
+						<span class="add_img">+</span>
+					</p>
+					<p>
+						<span class="info left">网址：</span>
+						<input class="right form-control link" />
+					</p>
+				</div>
+			</div>
+			<button type="button" class="btn btn-success add_block" id="add_block">增加一条</button>
+			<div class="next-div">
+				<button type="button" class="btn btn-success btn-next" id="save">保存</button>
+				<button type="button" class="btn btn-success btn-next" id="cancel">取消</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <span>菜单编辑</span>
+	      </div>
+	      <div class="modal-body">
+		    <div>
+
+			  <!-- Nav tabs -->
+			  <ul class="nav nav-tabs" role="tablist">
+			    <li role="presentation" class="active">
+			    	<a href="#home" class="modal_title" aria-controls="home" role="tab" data-toggle="tab">选择文章</a>
+			    </li>
+			    <li role="presentation">
+			    	<a href="#profile" class="modal_title" aria-controls="profile" role="tab" data-toggle="tab">网络文章</a>
+			    </li>
+			  </ul>
+
+			  <!-- Tab panes -->
+			  <div class="tab-content">
+			    <div role="tabpanel" class="tab-pane active" id="home">
+					<div id="home_content"></div>
+					<div id="pager"></div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="profile">
+					<div id="home_profile">
+						<p>
+							<span class="span_left">文章地址：</span>
+							<input class="form-control input_short net_link" />
+						</p>
+						<p>
+							<span class="span_left">文章标题：</span>
+							<input class="form-control input_short net_title" />
+						</p>
+						<p>
+							<span class="span_left">文章简介：</span>
+							<input class="form-control input_short net_info" />
+						</p>
+					</div>
+					<div id="pager"></div>
+			    </div>
+			  </div>
+
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default confirm">确定使用</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div id="img-select-modal-container">
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/content-imgText-setting-edit.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/webuploader-0.1.5/webuploader.min.js"></script>
+
+</body>
+</html>

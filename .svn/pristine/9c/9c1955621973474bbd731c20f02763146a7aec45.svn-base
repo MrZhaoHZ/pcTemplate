@@ -1,0 +1,42 @@
+.right-bar {
+	// padding: 15px 0 0 15px;
+	.btn-group {
+		.btn {
+			border-radius: 0;
+		}
+	}
+	.nav-select {
+		// margin: 15px 0 0 15px;
+		.selected {
+			border-bottom: none;
+		}
+	}
+	.user-container {
+		margin-top: 18px;
+		.user-input{
+			width: 135px;
+			float: left;
+			margin-right: 15px;
+		}
+		.add-user{
+			margin-top: 18px;
+		}
+		.user-table{
+			margin: 18px 15px 0px 0;
+			tr{
+				text-align: center;
+			}
+			th{
+				text-align: center;
+				background-color: #d7d7d7;
+			}
+		}
+	}
+}
+
+.enable{
+	color: #ff0000;
+}
+.color-red{
+	color: red;
+}

@@ -1,0 +1,45 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+      	"id": 1,
+        "type": 0,
+        "name": "所有等级",
+        "flag": 2
+      },
+     {
+      	"id": 1,
+        "type": 0,
+        "name": "所有等级",
+        "flag": 1
+      },
+      {
+      	"id": 1,
+        "type": 0,
+        "name": "所有等级",
+        "flag": 2
+      },
+      {
+      	"id": 1,
+        "type": 0,
+        "name": "所有等级",
+        "flag": 1
+      },
+      {
+      	"id": 1,
+        "type": 0,
+        "name": "所有等级",
+        "flag": 2
+      },
+      {
+      	"id": 1,
+        "type": 0,
+        "name": "所有等级",
+        "flag": 1
+      }
+    ],
+    "totalCount": 3
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link href="@static_2_path/css/account-list.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/layer/skin/layer.css" type="text/css">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="04">
+	<input type="hidden" name="menu-active" value="0401">
+	<div class="container main-container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <a class="btn btn-default selected" href="account-list.html">代理商账户管理</a>
+			  <!-- <a type="button" class="btn btn-default" href="role-management.html">角色管理</a> -->
+			  <!-- <a type="button" class="btn btn-default" href="user-management-log.html">管理员日志</a> -->
+			</div>
+			<div class="user-container">
+				<form class="search-key">
+					<input class="form-control user-input" maxlength="20" id="user-nickName" placeholder="昵称">
+					<input class="form-control user-input" maxlength="20" id="user-name" placeholder="姓名">
+					<input class="form-control user-input" maxlength="20" id="user-phone" placeholder="手机号">
+					<input class="form-control user-input" maxlength="20" id="user-weChat" placeholder="微信号">
+					<input class="form-control user-input" maxlength="20" id="user-id" placeholder="身份证号">
+					<select class="form-control user-input" id="all-level"></select>
+				</form>
+				<button type="button" class="btn btn-success" id="searcher">查询</button>
+				
+				<table class="table table-striped table-bordered table-hover user-table" id="table" >
+				  <thead>
+				  	<tr>
+					    <th>姓名</th>
+					    <th>手机号</th>
+					    <th>货款</th>
+					    <th>级别</th>
+					    <th>直属上级</th>
+					    <th>顶级</th>
+					    <th>直属人数</th>
+					    <th>团队人数</th>
+					    <th>状态</th>
+					    <th>操作</th>
+					</tr>
+					<tbody id="table-body"></tbody>
+				  </thead>
+				</table>
+				<div id="pager"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">代理商-<span id="adjustUserName"></span>-当前余额（<span id="adjustCurrentBalance"></span>）</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="operation-type">
+	        	<span class="span-title">调整类型：</span>
+	        	<select class="form-control options" id="status">
+				  <option value ="16">增加</option>
+				  <option value ="17">减少</option>
+				</select>
+	        </div>
+	        <div class="operation-money">
+	        	<span class="span-title">调整金额：</span>
+	        	<input id="adjust_money" class="form-control options"/>
+	        </div>
+	        <div class="operation-money">
+	        	<span class="span-title left_num">调整后金额：</span>
+	        	<span class="span-title left_num" id="left_money"></span>
+	        </div>
+	        <div class="operation-reason">
+	        	<span class="span-title">调整理由：</span>
+	        	<textarea maxlength="100" id="reason" class="form-control input-reason" placeholder="请输入最多100个字符"></textarea>
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="close" class="btn btn-default">确定</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_2_path/bundle/account-list.js?v=@version"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+</body>
+</html>

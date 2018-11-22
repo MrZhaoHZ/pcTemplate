@@ -1,0 +1,24 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 0,
+        "name": "所有等级",
+        "realName": "某某"
+      },
+      {
+        "id": 1,
+        "name": "等级1",
+        "realName": "某某"
+      },
+      {
+        "id": 2,
+        "name": "等级2",
+        "realName": "某某"
+      }
+    ],
+    "totalCount": 3
+  }
+}

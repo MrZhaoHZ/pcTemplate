@@ -1,0 +1,94 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 1,
+        "pId": 0,
+        "name": "代理商管理",
+        "open": true,
+        "isChecked": true
+      },
+      {
+        "id": 11,
+        "pId": 1,
+        "name": "代理商管理",
+        "open": true,
+        "isChecked": true
+      },
+      {
+        "id": 111,
+        "pId": 11,
+        "name": "查看",
+        "open": true,
+        "isChecked": true
+      },
+      {
+        "id": 111,
+        "pId": 11,
+        "name": "导出",
+        "open": true
+      },
+      {
+        "id": 12,
+        "pId": 1,
+        "name": "代理商审核",
+        "open": true
+      },
+      {
+        "id": 121,
+        "pId": 12,
+        "name": "审核",
+        "open": true
+      },
+      {
+        "id": 122,
+        "pId": 12,
+        "name": "批量审核",
+        "open": true
+      },
+      {
+        "id": 2,
+        "pId": 0,
+        "name": "商品管理",
+        "open": true,
+        "checked": true
+      },
+      {
+        "id": 21,
+        "pId": 2,
+        "name": "商品管理",
+        "open": true
+      },
+      {
+        "id": 22,
+        "pId": 2,
+        "name": "品类管理",
+        "open": true,
+        "checked": true
+      },
+      {
+        "id": 221,
+        "pId": 22,
+        "name": "品类管理1",
+        "open": true,
+        "checked": true
+      },
+      {
+        "id": 2211,
+        "pId": 221,
+        "name": "品类管理1-1",
+        "open": true,
+        "checked": true
+      },
+      {
+        "id": 22111,
+        "pId": 2211,
+        "name": "品类管理1-1-1",
+        "open": true,
+        "checked": true
+      }
+    ]
+  }
+}

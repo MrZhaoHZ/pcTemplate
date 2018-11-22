@@ -1,0 +1,18 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+      "id": "1",
+      "realName": "石磊",
+      "mobile": "135999895",
+      "amount": "￥1000.00",
+      "wechatId": "WX32424543",
+      "address": "浙江省  杭州市 拱墅区 丰潭路380号银泰城E座8楼",
+      "gradeName":"官方",
+      "parentName": "",
+      "topName": "",
+      "childNum": "",
+      "totalTeam": "",
+      "authStatus": 0
+  }
+}

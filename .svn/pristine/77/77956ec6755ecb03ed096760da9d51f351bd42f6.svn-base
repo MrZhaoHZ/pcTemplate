@@ -1,0 +1,39 @@
+{
+  "code": 10000,
+  "msg": "请求处理成功",
+  "data": {
+      "data": [
+          {
+              "account": 234,
+              "name": "测试",
+              "role": "系统",
+              "start_time": "2016-11-12 21:14:59",
+              "end_time": "2016-11-12 21:14:59",
+              "status": 0,
+              "issue_status": 0,
+              "enable": 1
+          },
+           {
+              "account": 234,
+              "name": "测试",
+              "role": "系统",
+              "start_time": "2016-11-12 21:14:59",
+              "end_time": "2016-11-12 21:14:59",
+              "status": 1,
+              "issue_status": 1,
+              "enable": 1
+          },
+          {
+              "account": 234,
+              "name": "测试",
+              "role": "管理员",
+              "start_time": "2016-11-12 21:14:59",
+              "end_time": "2016-11-12 21:14:59",
+              "status": 0,
+              "issue_status": 2,
+              "enable": 0
+          }
+      ],
+      "total_count": 133
+  }
+}

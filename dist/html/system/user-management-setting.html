@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/css/zTreeStyle/zTreeStyle.min.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/user-management-setting.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+	<input type="hidden" name="nav-active" value="02">
+	<input type="hidden" name="menu-active" value="0201">
+
+	<div class="container">
+		<div class="left-bar" id="menu-container"></div>
+		<div class="right-bar">
+			<div class="btn-group nav-select">
+			  <button type="button" class="btn btn-default selected" id="user-edit-title"></button>
+			</div>
+			<div class="user-container">
+				<div id="user-info">
+					<form class="container-left">
+						<div class="user-input">
+							<span class="text-input"><span class="text-color">*</span>用户名：</span>
+							<input class="form-control input-content" id="user-name">
+						</div>
+						<div class="user-input" style="display: none;">
+							<span class="text-input">密码：</span>
+							<input type="password" class="form-control input-content" id="user-pwd">
+						</div>
+						<div class="user-input" style="display: none;">
+							<span class="text-input">确认密码：</span>
+							<input type="password" class="form-control input-content" id="user-conf-pwd">
+						</div>
+						
+						<!-- <div class="user-input">
+							<span class="text-input"><span class="text-color">*</span>姓名：</span>
+							<input class="form-control input-content" id="real-name">
+						</div> -->
+						<!-- <div class="user-input">
+							<span class="text-input">角色：</span>
+							<select name="" id="roleList" class="form-control input-content">
+							</select>
+						</div> -->
+						<div class="user-input" id="role-tree-form" style="display: none;">
+							<span class="text-input">角色：</span>
+							<div id="role-choise" class="role-choise ztree "></div>
+						</div>
+						<div class="user-input" style="display: none;">
+							<span class="text-input">状态：</span>
+							<label style="margin: 0 15px;">
+							    <input type="radio" class="radio-iput" name="inlineRadioOptions" value="1" checked="">正常
+							</label>
+							<label>
+							    <input type="radio" class="radio-iput" name="inlineRadioOptions" value="0">禁用
+							</label>
+						</div>
+						<div class="user-input">
+							<span class="text-input">用户类型：</span>
+							<label style="margin: 0 15px;">
+							    <input type="radio" class="radio-iput" name="user-type" value="1"> 业务管理员
+							</label>
+							<label>
+							    <input type="radio" class="radio-iput" name="user-type" value="2" checked> 普通操作员
+							</label>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="confirm">
+				<button type="button" class="btn btn-success btn-left" id="save">保存</button>
+				<button type="button" class="btn btn-success btn-right" id="cancle"><a  href="user-management-list.html" style="color: white">取消</a></button>
+			</div>
+		</div>
+	</div>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/js/jquery.ztree.core-3.5.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-ztree/3.5.12/js/jquery.ztree.excheck-3.5.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/md5/md5.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/RSA/RSA.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+	<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/user-management-setting.js?v=2.0.32"></script>
+</body>
+</html>

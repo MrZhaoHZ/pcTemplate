@@ -1,0 +1,57 @@
+body{
+    #tableBody{
+        tr{
+            td{
+                line-height: 38px;
+            }
+        }
+    }
+    
+     #addGoodsPopup{
+            .modal-dialog{
+                width: 450px;
+                 .modal-body{
+                    .operation-money{
+                            margin-left: 20px;
+                            margin-top: 10px;
+                            min-height: 34px;
+                            overflow: hidden;
+                        .options{
+                            float: left;
+                            width: 300px;
+                            display: inline-block;
+                        }
+                        .span-title{
+                                float: left;
+                                line-height: 30px;
+                                display: inline-block;
+                                width: 70px;
+                        }
+                    }
+                }
+            }
+        }
+        .img_box{
+                margin-left: 70px;
+                    height: 80px;
+                    margin-top: -15px;
+                .add_box{
+                        cursor: pointer;
+                        float: left;
+                        position: relative;
+                        margin-right: 6px;
+                        display: inline-block;
+                        width: 80px;
+                        height: 80px;
+                        font-size: 54px;
+                        text-align: center;
+                        line-height: 64px;
+                        border: 1px solid #ccc;
+                    .icon{
+                        vertical-align: middle;
+                        color: #ccc;
+                        background-color: #fff;
+                    }
+                }
+            }
+}

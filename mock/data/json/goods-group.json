@@ -1,0 +1,44 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+      	"id": 1,
+        "name": "所有等级",
+        "sort": 2,
+        "isOnShow": 1
+      },
+      {
+      	"id": 1,
+        "name": "所有等级",
+        "sort": 2,
+        "isOnShow": 2 
+      },
+      {
+      	"id": 1,
+        "name": "所有等级",
+        "sort": 2,
+        "isOnShow": 1 
+      },
+       {
+      	"id": 1,
+        "name": "所有等级",
+        "sort": 2,
+        "isOnShow": 2 
+      },
+       {
+      	"id": 1,
+        "name": "所有等级",
+        "sort": 2,
+        "isOnShow": 1 
+      },
+       {
+      	"id": 1,
+        "name": "所有等级",
+        "sort": 2,
+        "isOnShow": 2 
+      }
+    ]
+  }
+}

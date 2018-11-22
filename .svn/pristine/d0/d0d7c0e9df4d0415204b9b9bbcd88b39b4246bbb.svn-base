@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Note there is no responsive meta tag here -->
+    <link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+    <title>微商管理</title>
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/select2/css/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.1.css" type="text/css">
+    <link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+    <link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/drainage-data.css?v=2.0.32" rel="stylesheet">
+</head>
+
+<body>
+    <input type="hidden" name="nav-active" value="11">
+    <input type="hidden" name="menu-active" value="1105">
+    <div class="container main-container">
+        <div class="left-bar" id="menu-container">
+
+        </div>
+        <div class="right-bar" id="right-bar-container">
+            <div class="btn-group nav-select">
+                <a type="button" class="btn btn-default" style="border-bottom:none;" href="javascript:void(0);" data-id="0">全部</a>
+            </div>
+            <br>
+            <br>
+            <div class="form-inline middle-condition topLevelContainer" id="topLevelContainer"></div>
+            <div class="form-inline" style="float:left; margin: 10px 0">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="姓名" id="user_name">
+                </div>
+                <div class="form-group" style="margin-left:15px">
+                    <input type="text" class="form-control" placeholder="手机号" id="drainage_tel">
+                </div>
+                <div class="form-group" style="margin-left:15px">
+                    <input type="text" class="form-control" placeholder="活动名称" id="drainage_name">
+                </div>
+                <div class="form-group" style="margin-left:15px">
+                    <span class="pull-left">代理级别：</span>
+                    <select class="form-control" id="selected_state" style="width: 150px">
+                        <option value="">全部等级</option>
+                        <option value="1">合伙人</option>
+                        <option value="2">总代理</option>
+                        <option value="3">市级代理</option>
+                        <option value="4">品牌督导</option>
+                        <option value="5">美丽顾问</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-inline" style="float: right; margin: 10px 0">
+                <button type="button" class="btn btn-success" style="width : 100px" id="batch-check">查询</button>
+            </div>
+            <br>
+            <br>
+            <div id="number" class="pull-left" style="margin: 5px; width: 180px">
+                活动引流总人数：
+                <span style="color:red"></span>
+            </div>
+            <div class="form-group" style="width: 15%; padding: 0 15px; float: left;">
+                <select class="form-control" id="exports-select">
+                    <option value="1">导出全部</option>
+                    <option value="0">导出当前页</option>
+                </select>
+            </div>
+            <div class="form-inline" style="float: left">
+                <button type="button" class="btn btn-success" style="width : 100px" id="export">导出</button>
+            </div>
+            <table class="table table-bordered table-hover table-striped tab-content-center" id="order-list">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>手机号</th>
+                        <th>级别</th>
+                        <th>活动名</th>
+                        <th>团队引流数</th>
+                        <th>个人引流数</th>
+                        <th>应有奖励</th>
+                        <th>已发奖励</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- <tr>
+                        <td>Jing</td>
+                        <td>17695670823</td>
+                        <td>合伙人</td>
+                        <td>一叶子活动</td>
+                        <td><a class="eject">60</a></td>
+                        <td><a class="eject">5</a></td>
+                        <td>￥10</td>
+                        <td>￥8</td>
+                        <td>1</td>
+                        <td><a class="operation">发红包</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <div>
+                <div id="nodata-tips" style="display: none;padding: 50px;text-align: center;">暂无数据</div>
+                <!-- <button type="button" class="btn btn-success" id="batch-check">批量审核</button> -->
+                <div id="rewardPager" class="pager"></div>
+            </div>
+        </div>
+
+        <!--引流详情展示-->
+        <div class="modal fade" id="drainage_details" style="margin-top: 40px; margin-left: 52px; " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content" style="padding: 15px; min-height: 800px ">
+                    <div class="form-inline" style="float:left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="姓名" id="order_name">
+                        </div>
+                        <div class="form-group" style="margin-left:15px">
+                            <input type="text" class="form-control" placeholder="手机号" id="order_tel">
+                        </div>
+                        <div class="form-group" style="margin-left:15px">
+                            <input type="text" class="form-control" placeholder="分享人手机号" id="share_tel">
+                        </div>
+                        <div class="form-group" style="margin-left:15px">
+                            <select class="form-control" id="red_state" style="width: 150px">
+                                <option value="">红包状态</option>
+                                <option value="0">未发放</option>
+                                <option value="1">已发放</option>
+                                <option value="2">发放失败</option>
+                                <option value="3">发放中</option>
+                                <option value="4">已发放待领取</option>
+                                <option value="5">已领取</option>
+                                <option value="6">退款中</option>
+                                <option value="7">已退款</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-inline" style="float: right">
+                        <button type="button" class="btn btn-success" style="width : 100px" id="order_query">查询</button>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <table class="table table-bordered table-hover table-striped tab-content-center" id="">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>手机号</th>
+                                <th>活动名</th>
+                                <th>代理状态</th>
+                                <th>分享人</th>
+                                <th>分享人手机号</th>
+                                <th>红包状态</th>
+                                <th>状态详情</th>
+                                <th>下单时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order_tbody">
+                            <!-- <tr>
+                                <td>Jing</td>
+                                <td>17695670823</td>
+                                <td>一叶子活动</td>
+                                <td>
+                                    是
+                                </td>
+                                <td>Wei</td>
+                                <td>18738227066</td>
+                                <td>已发放</td>
+                                <td>已领取</td>
+                                <td>
+                                    2018-04-09 11:58:59
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <div>
+                        <div id="order_view" style="display: none;padding: 50px;text-align: center;">暂无数据</div>
+                        <!-- <button type="button" class="btn btn-success" id="batch-check">批量审核</button> -->
+                        <div id="rewardOrderPager" class="pager"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发放红包 -->
+        <!-- <div class="modal fade" id="red_envelopess" style="margin-top: 40px; margin-left: 52px; " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog"  role="document" style="width: 500px">
+                <div class="modal-content">
+                    <div class="envelopessCenter">
+                        <span class="pull-left">红包金额（元）：</span>
+                        <select class="form-control" style="width: 150px">
+                            <option>选择金额</option>
+                            <option>2</option>
+                            <option>10</option>
+                            <option>50</option>
+                        </select>
+                    </div>
+                    <div class="envelopessCenter">
+                        <span class="pull-left">发放人：</span>
+                        <input type="text" class="form-control" placeholder="发放人姓名" id="">
+                    </div>
+                    <div class="envelopessCenter">
+                        <span class="pull-left">发放原因：</span>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/select2/js/select2.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.min.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+    <script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/drainageData.js?v=2.0.32"></script>
+</body>
+
+</html>

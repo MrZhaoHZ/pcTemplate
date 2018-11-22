@@ -1,0 +1,45 @@
+{
+  "code": 10000,
+  "msg": "请求处理成功",
+  "data": {
+      "data": [
+          {   "user_name": "fjc",
+              "time": "2016-09-12 16:52:16",
+              "remark": "管理员XX审核",
+              "status": "审核通过"
+          },
+          {   "user_name": "fjc",
+              "time": "2016-09-12 16:52:16",
+              "remark": "管理员XX审核",
+              "status": "审核通过"
+          },
+          {   "user_name": "fjc",
+              "time": "2016-09-12 16:52:16",
+              "remark": "管理员XX审核",
+              "status": "审核通过"
+          },
+          {   "user_name": "fjc",
+              "time": "2016-09-12 16:52:16",
+              "remark": "管理员XX审核",
+              "status": "审核通过"
+          },
+          {   "user_name": "fjc",
+              "time": "2016-09-12 16:52:16",
+              "remark": "管理员XX审核",
+              "status": "审核通过"
+          },
+          {   "user_name": "fjc",
+              "time": "2016-09-12 16:52:16",
+              "remark": "管理员XX审核",
+              "status": "审核通过"
+          }
+      ],
+      "detail_name": "石头",
+      "detail_nick_name": "石头",
+      "detail_phone": "15011423467",
+      "detail_balance": "0.00",
+      "detail_superior": "石头",
+      "detail_money": "1200.00",
+      "detail_status": "待上级审核"
+  }
+}

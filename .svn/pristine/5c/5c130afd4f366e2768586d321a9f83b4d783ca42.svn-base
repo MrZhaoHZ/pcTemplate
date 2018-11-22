@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="//bsstest1.yyzws.com/leaf_manager_web/static/favicon.ico">
+	<title>微商管理</title>
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/common.css?v=2.0.32" rel="stylesheet">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="//bsstest1.yyzws.com/leaf_manager_web/static/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="//bsstest1.yyzws.com/leaf_manager_web/static/css/agent-grade-management.css?v=2.0.32" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="03">
+<input type="hidden" name="menu-active" value="0309">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<!-- <div class="tips">特别注意：添加等级请先从高级往低级添加。<span id="tips-close">×</span></div> -->
+		<div class="btn-group nav-select" id="nav-select">
+		  <a class="btn btn-default selected" href="javascript:void(0)">推广渠道设置</a>
+		</div>
+		<br>
+		<br>
+		<div class="form-inline middle-condition">
+		  <div class="form-group inline-btn">
+			<a href="channel-setting.html" class="btn btn-success">添加推广渠道</a>
+		  </div>
+		</div>
+		<table class="table table-bordered">
+		</table>
+	</div>
+</div>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery/jquery-1.10.2.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/doT-master/doT.min.js"></script>
+<!-- <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery-pager-plugin-master/jquery.pager.js"></script> -->
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/layer/layer.js"></script>
+<!-- <script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui.min.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script> -->
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/main.js?v=2.0.32"></script>
+<script src="//bsstest1.yyzws.com/leaf_manager_web/static/bundle/channel-list.js?v=2.0.32"></script>
+</body>
+</html>

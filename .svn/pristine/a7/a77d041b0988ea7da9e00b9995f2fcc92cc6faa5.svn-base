@@ -1,0 +1,216 @@
+var self_tpl = {
+    'activityListName': '{{~ it.data:value1:index1 }}\
+                            <tr>\
+						        <td>{{= value1.act_name}}</td>\
+						        <td>{{= value1.start_date}}</td>\
+                                <td>{{= value1.end_date}}</td>\
+                                {{? value1.act_status == 1}}\
+                                <td>未发布</td>\
+                                {{?? value1.act_status == 2}}\
+                                <td>活动进行中</td>\
+                                {{?? value1.act_status == 3}}\
+                                <td>已撤下</td>\
+                                {{?? value1.act_status == 4 || value1.act_status == 6}}\
+                                <td>活动结束</td>\
+                                {{?? value1.act_status == 5}}\
+                                <td>即将开始</td>\
+                                {{? }}\
+                                <td>\
+                                {{? value1.act_status == 3}}\
+                                <a  style="cursor:pointer" href="activity-set-edit.html?data-id='+ "{{= value1.id }}" +'">编辑</a>&nbsp;&nbsp;\
+                                {{?? value1.act_status == 1}}\
+                                <a  style="cursor:pointer" href="activity-set-edit.html?data-id='+ "{{= value1.id }}" +'">编辑</a>&nbsp;&nbsp;\
+                                {{?? value1.act_status == 2}}\
+                                <a  style="cursor:pointer" class="edit-laye" href="javascript:void(0)"=>编辑</a>&nbsp;&nbsp;\
+                                {{?? value1.act_status == 4 || value1.act_status == 6}}\
+                                <a  style="cursor:pointer" class="activity-end" href="javascript:void(0)"=>编辑</a>&nbsp;&nbsp;\
+                                {{?? value1.act_status == 5}}\
+                                <a  style="cursor:pointer" class="edit-laye" href="javascript:void(0)"=>编辑</a>&nbsp;&nbsp;\
+                                <a  style="cursor:pointer" class="withdraw" data-id = "{{= value1.id}}">撤下</a>\
+                                {{? }}\
+                                {{? value1.act_status == 2}}\
+                                <a  style="cursor:pointer" class="withdraw" data-id = "{{= value1.id}}">撤下</a>\
+                                {{?? value1.act_status == 3}}\
+                                <a  style="cursor:pointer" class="release" data-id = "{{= value1.id}}">发布</a>\
+                                {{?? value1.act_status == 1}}\
+                                <a  style="cursor:pointer" class="release" data-id = "{{= value1.id}}">发布</a>\
+                                 {{?? value1.act_status == 4 || value1.act_status == 6}}\
+                                <a  style="cursor:pointer" class="activity-end" href="javascript:void(0)"=></a>&nbsp;&nbsp;\
+                                {{?}}\
+                                </td>\
+                            </tr>\
+                        {{~}}',
+    'modelList': ' {{~ it.data.modelSelectionD_T_O_S:item:index}}\
+                        <tr>\
+                            <td><input data_id="{{= item.id}}" type="checkbox" {{= item.marked==0? "" :"checked"}} name="selectItem"></td>\
+                            <td>{{= item.name}}</td>\
+                            <td>{{= item.mobile}}</td>\
+                            <td>{{= item.desc || ""}}</td>\
+                            <td>{{= item.marked}}</td>\
+                            <td>{{= item.img.length}}</td>\
+                            <td class="img_btn" data_img={{= item.img}}><img data_img={{= item.img}} style="width:50px;height:50px" src={{= it.path + item.img[0] || ""}}></td>\
+                        </tr>\
+                    {{~}}',
+    'activityGoodsList': '{{~ it.data.data:item:index}}\
+                            <tr>\
+                                <td><img style="width:50px" src={{= it.path + item.image_uri}}></td>\
+                                <td>{{= item.item_name}}</td>\
+                                <td>{{= item.item_sn}}</td>\
+                                <td>{{= item.unit}}</td>\
+                                <td>{{= item.item_price_str}}</td>\
+                                {{? item.invalid==0}}\
+                                <td>正常</td>\
+                                {{?? item.invalid==1}}\
+                                <td>已作废</td>\
+                                {{?? !item.invalid}}\
+                                <td></td>\
+                                {{?}}\
+                                <td>\
+                                    {{?  item.invalid==0}}\
+                                     <a class="add-goods" style="cursor:pointer" href="activity-addGoods-management.html?data-id={{= item.id}}">编辑</a>&nbsp;\
+                                     <a class="to-viod" style="cursor:pointer" data-id={{= item.id}}>作废</a>\
+                                     {{?? item.invalid==1}}\
+                                     <a class="add-goods bad" style="cursor:pointer;color:#ccc;" href="javascript:void(0);">编辑</a>&nbsp;\
+                                     <a class="bad" style="cursor:pointer;color:#ccc;" data-id={{= item.id}}>作废</a>\
+                                     {{?}}\
+                                </td>\
+                            </tr >\
+                          {{~}}',
+    'activityOrderList': '{{~ it:item:index}}\
+        {{? item.act_order_details_d_t_o_list}}\
+            {{ for(var j=0, len=item.act_order_details_d_t_o_list.length; j<len; j++) { }}\
+                            <tr data_id="{{= item.id}}">\
+                                <td>{{= item.activity_name}}</td>\
+                                <td rowspan="{{= len}}">{{= item.act_order_details_d_t_o_list[j].item_name}}</td>\
+                                <td>{{= item.mobile}}</td>\
+                                <td>{{= item.province_name}}{{= item.city_name}}{{= item.area_name}}{{= item.address}}</td>\
+                                <td>{{= item.create_date}}</td>\
+                                {{? item.order_status==0}}\
+                                <td>待支付</td>\
+                                {{?? item.order_status==1}}\
+                                <td>待发货</td>\
+                                {{?? item.order_status==2}}\
+                                <td>已作废</td>\
+                                {{?? item.order_status==3}}\
+                                <td>已发货</td>\
+                                {{?? item.order_status==-1}}\
+                                <td></td>\
+                                {{?}}\
+                                <td>{{= item.reco_mobile}}</td>\
+                                <td>\
+                                    {{? item.order_status == 0 }}\
+                                        <a class="remove" data_status="{{= item.order_status}}">作废</a>\
+                                    {{?? item.order_status == 1}}\
+                                        <a class="remove" data_status="{{= item.order_status}}">作废</a>\
+                                        <a class="fahuo">发货</a>\
+                                    {{?? item.order_status==2}}\
+                                        <a class="remove" data_status="{{= item.order_status}}">已作废</a>\
+                                    {{?? item.order_status==3}}\
+                                        <a style="display:block;word-break:keep-all;white-space:nowrap;cursor:pointer;">已发货</a>\
+                                        <a style="display:block;word-break:keep-all;white-space:nowrap;cursor:pointer;">成为代理商</a>\
+                                    {{?}}\
+                                </td>\
+                            </tr >\
+            {{ } }}\
+        {{??}}\
+        {{?}}\
+    {{~}}',
+    'activityOrderListNew': '{{~ it:item:index}}\
+            <tr data_id="{{= item.id}}">\
+                <td>{{= item.activity_name}}</td>\
+                <td>{{= item.consignee}}</td>\
+                <td>{{= item.mobile}}</td>\
+                <td>{{= item.province_name}}{{= item.city_name}}{{= item.area_name}}{{= item.address}}</td>\
+                <td>{{= item.create_date}}</td>\
+                {{? item.order_status==0}}\
+                <td>待支付</td>\
+                {{?? item.order_status==1}}\
+                <td>支付中</td>\
+                {{?? item.order_status==2}}\
+                <td>支付完成</td>\
+                {{?? item.order_status==6}}\
+                <td>订单关闭</td>\
+                {{?? item.order_status==7}}\
+                <td>发货中</td>\
+                {{?? item.order_status==8}}\
+                <td>已发货</td>\
+                {{?? item.order_status==-1}}\
+                <td></td>\
+                {{??}}\
+                <td></td>\
+                {{?}}\
+                {{? item.gen_agent==1}}\
+                <td>是</td>\
+                {{?? item.gen_agent==2}}\
+                <td>否</td>\
+                {{?}}\
+                <td>{{= item.reco_mobile}}</td>\
+                <td>\
+                    {{? (item.order_status==7 || item.order_status==2 || item.order_status==8 )&& item.gen_agent==2}}\
+                        <a id="do_daili" style="display:block;word-break:keep-all;white-space:nowrap;cursor:pointer;">成为代理</a>\
+                    {{?}}\
+                    <a id="g_status" style="display:block;word-break:keep-all;white-space:nowrap;cursor:pointer;">更改状态</a>\
+                    {{? item.order_status==8}}\
+                        <a href="https://m.kuaidi100.com/index_all.html?postid={{= item.express_no}}" target="_blank" id="see_load" style="display:block;word-break:keep-all;white-space:nowrap;cursor:pointer;">查看物流</a>\
+                    {{?}}\
+                </td>\
+            </tr >\
+    {{~}}',
+    'expressOptionTpl': '<option value="">选择物流公司</option>\
+                         {{~ it.data:item:index }}\
+                            <option value="{{= item.express_code}}" {{? it.express_code== item.express_code}}selected{{?}}>{{= item.express_name}}</option>\
+                         {{~}}',
+    'activityStatisticsListName': '{{~ it.data:value1:index1 }}\
+                            <tr>\
+						        <td>{{= value1.act_name}}</td>\
+						        <td>{{= value1.show_start_date}}</td>\
+                                <td>{{= value1.show_end_date}}</td>\
+                                {{? value1.act_status == 1}}\
+                                <td>未发布</td>\
+                                {{?? value1.act_status == 2}}\
+                                <td>已发布</td>\
+                                {{?? value1.act_status == 3}}\
+                                <td>已撤下</td>\
+                                {{?? value1.act_status == 4}}\
+                                <td>活动结束</td>\
+                                {{? }}\
+                                <td>\
+                                    <a href="statistics-details.html?choice=order&data-id={{= value1.id}}" style="color:#428bca" > 订单统计</a>&nbsp;\
+                                    <a href="statistics-details.html?choice=stock&data-id={{= value1.id}}"" style = "color:#428bca" > 库存展示</a>&nbsp;\
+                                    <a href="statistics-details.html?choice=drainage&data-id={{= value1.id}}"" style="color:#428bca">引流数量</a> &nbsp;\
+                                    <a href="statistics-details.html?choice=draw&data-id={{= value1.id}}"" style="color:#428bca">抽奖详情</a> &nbsp;\
+                                    <a href="statistics-details.html?choice=reward&data-id={{= value1.id}}"" style="color:#428bca">引流奖励</a> &nbsp;\
+                                </td >\
+                            </tr>\
+                        {{~}}',
+    'activityGoods': '{{~ it:item:index}}\
+                            <li>\
+                                <div class= "prodImage" >\
+                                    <img src={{= item.picture_url}} alt="">\
+                                </div>\
+                                <div class="prodInfor">\
+                                    <p class="" style="margin-bottom:5px;">{{= item.item_name}}</p>\
+                                    <p class="">\
+                                        <label>价格:</label>\
+                                        <span class="itemPrice">{{= item.item_price}}</span>\
+                                    </p>\
+                                    <p class="">\
+                                        <label>数量:</label>\
+                                        <span class="num">{{= item.single_buy_num}}</span>\
+                                    </p>\
+                                    <p class="">\
+                                        <label>规格:</label>\
+                                        <span class="num">{{= item.unit}}</span>\
+                                    </p>\
+                                    <p class="">\
+                                        <label>库存:</label>\
+                                        <span class="total">{{= item.total_inv}}</span>\
+                                 </p>\
+                                    <p class="dinghuo">\
+                                        <a class="xd" href="javascript:void(0);">下单</a>\
+                                    </p>\
+                                </div>\
+                            </li >\
+                          {{~}}',
+};
+module.exports = self_tpl;

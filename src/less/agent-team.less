@@ -1,0 +1,114 @@
+.right-bar {
+	.numspan {
+		display: inline-block;
+		padding: 6px 15px;
+		border: 1px solid #D7D7D7;
+	}
+	.team-select {
+		margin-top: 20px;
+		.level-info {
+			.item {
+				float: left;
+				margin-right: 45px;
+				padding: 6px 0;
+				width: 200px;
+				// background: gray;
+				b {
+					color: red;
+				}
+				span {
+					display: inline-block;
+					width: 100%;
+					padding: 5px 0;
+					background: #F2F2F2;
+					border: 1px solid #E4E4E4;
+				}
+				.inner {
+					height: 300px;
+					overflow-y: auto;
+					border: 1px solid #828790;
+					p {
+						padding-left: 5px;
+						margin-bottom: 5px;
+						cursor: pointer;
+						&:hover {
+							background: #3399FF;
+						}
+						&.active {
+							background: #3399FF;
+						}
+					}
+				}
+			}
+		}
+		.refresh {
+			cursor: pointer;
+		}
+	}
+	.up-agency,.down-agency {
+		display: inline-block;
+		padding: 6px 15px;
+		// width: 60px;
+		border: 1px solid #D7D7D7;
+		text-align: center;
+		&:hover {
+			cursor: pointer;
+		}
+		&.active {
+			color: #fff;
+			// background: #789C14;
+			background: #5cb85c;
+		}
+	}
+	.up-agency {
+		border-right: none;
+	}
+	.down-agency {
+		border-left: none;
+	}
+	.nav-select .selected {
+		border-bottom: none;
+	}
+	.btn-group .btn {
+		border-radius: 0;
+	}
+	// .form-inline {
+	// 	margin: 5px 0;
+	// }
+	// .middle-condition .form-group {
+	// 	width: 100px;
+	// }
+	// .middle-condition .form-control {
+	// 	width: 100%;
+	// }
+	// table.agent-list {
+	// 	tr th {
+	// 		text-align: center;
+	// 	}
+	// 	tr td {
+	// 		text-align: center;
+	// 	}
+	// }
+	.agency-detail {
+		.btn-group {
+			.btn {
+				margin-right: 10px;
+			}
+		}
+	}
+}
+#limit-setting-modal .modal-dialog {
+	width: 800px;
+	.limit-num {
+		input {
+			width: 50px;
+		}
+	}
+}
+#agency-info-edit-modal {
+	.form-control {
+		display: inline-block;
+	    padding: 6px 0;
+	    width: auto;
+	}
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/css/agent-upgrade-check.css?v=@version" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="03">
+<input type="hidden" name="menu-active" value="0303">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+		<!-- <ul>
+			<li class="active"><a href="agency-list.html" data-id="1">代理商列表</a></li>
+			<li><a href="department.html" data-id="2">部门管理</a></li>
+			<li><a href="employee.html" data-id="3">员工管理</a></li>
+			<li><a href="role-management.html" data-id="4">角色管理</a></li>
+		</ul> -->
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select" id="nav-select">
+		  <a type="button" class="btn btn-default selected" data_status="">全部</a>
+		  <a type="button" class="btn btn-default" data_status="8">待原上级审核</a>
+		  <a type="button" class="btn btn-default" data_status="6">原上级拒绝</a>
+		  <a type="button" class="btn btn-default" data_status="5">待新上级审核</a>
+		  <a type="button" class="btn btn-default" data_status="2">新上级拒绝</a>
+		  <a type="button" class="btn btn-default" data_status="9">待总部审核</a>
+		  <a type="button" class="btn btn-default" data_status="4">总部拒绝</a>
+		  <a type="button" class="btn btn-default" data_status="3">审核通过</a>
+		</div>
+		<div class="form-inline middle-condition">
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="开始时间" id="start-time">
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" placeholder="结束时间" id="end-time">
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" id="name" placeholder="姓名">
+		  </div>
+		  <div class="form-group">
+			<select class="form-control" id="cross_level">
+			  <option>是否跨级</option>
+			  <option value="0">是</option>
+			  <option value="1">否</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+			<select class="form-control" id="all_level">
+			  <option>申请等级</option>
+			</select>
+		  </div>
+		  <div class="form-group inline-btn">
+			<button type="button" class="btn btn-success" id="search">查询</button>
+		  </div>
+		  <div class="form-group">
+			<select class="form-control" id="exports-select">
+			  <option value="1">导出全部</option>
+			  <option value="0">导出当前页</option>
+			</select>
+		  </div>
+		  <div class="form-group inline-btn">
+			<button type="button" class="btn btn-success" id="exports-btn">导出</button>
+		  </div>
+		</div>
+		<table class="table table-bordered" id="table-container">
+		  <!-- <thead>
+			<tr>
+			  <th><input type="checkbox" class="select-all"></th>
+			  <th>申请时间</th>
+			  <th>姓名</th>
+			  <th>等级</th>
+			  <th>是否跨级</th>
+			  <th>申请等级</th>
+			  <th>现直属</th>
+			  <th>升级后直属</th>
+			  <th>打款金额</th>
+			  <th>状态</th>
+			  <th>操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr data-id="">
+			  <td><input type="checkbox" name="selectItem"></td>
+			  <td>2016-11-17 22:04:39</td>
+			  <td>石头</td>
+			  <td>官方</td>
+			  <td></td>
+			  <td></td>
+			  <td>点击查看</td>
+			  <td>3</td>
+			  <td>点击查看</td>
+			  <td>待上级审核</td>
+			  <td><a href="">通过</a>&nbsp;<a href="">拒绝</a>&nbsp;<a href="">详情</a></td>
+			</tr>
+			<tr data-id="">
+			  <td><input type="checkbox" name="selectItem"></td>
+			  <td>13888888888</td>
+			  <td>￥1000.00</td>
+			  <td>官方</td>
+			  <td></td>
+			  <td></td>
+			  <td>点击查看</td>
+			  <td>3</td>
+			  <td>点击查看</td>
+			  <td>待上级审核</td>
+			  <td><a href="javascript:void(0)" class="pass-btn">通过</a>&nbsp;<a href="javascript:void(0)" class="nopass-btn">拒绝</a>&nbsp;<a href="javascript:void(0)" class="detail-btn">详情</a></td>
+			</tr>
+		  </tbody> -->
+		</table>
+		<div>
+			<div id="nodata-tips" style="display: none;padding: 50px;text-align: center;">暂无数据</div>
+			<!-- <button type="button" class="btn btn-success" id="batch">批量审核</button> -->
+			<div id="pager"></div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="nopass-modal">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">代理商审核</h4>
+	  </div>
+	  <div class="modal-body">
+		<div>
+		  	<div class="form-inline">
+			  <div class="form-group" style="width:15%;">
+				拒绝理由：
+			  </div>
+			  <div class="form-group" style="width:80%;">
+				<textarea name="" id="" rows="10" style="resize: none;width: 100%;"></textarea>
+			  </div>
+			</div>
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-primary">提交</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="user-info-modal">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">用户信息</h4>
+	  </div>
+	  <div class="modal-body">
+		<div>
+		  	<table class="table table-bordered">
+			  <tbody>
+				<tr>
+				  <td>姓名：石头</td>
+				  <td>微信号：XXXXXXX</td>
+				</tr>
+				<tr>
+				  <td>所属上级：XXXX</td>
+				  <td>顶级：XXXXX</td>
+				</tr>
+				<tr>
+				  <td>身份信息：</td>
+				  <td>打款截图：</td>
+				</tr>
+				<tr>
+				  <td>申请级别：官方</td>
+				  <td>打款金额：￥20000</td>
+				</tr>
+				<tr>
+				  <td colspan="2">地址：XXXXXXXXXXXXXXXXXXXXX</td>
+				</tr>
+			  </tbody>
+			</table>
+
+			<div class="check-process">
+				<span>审核流程</span>
+				<table class="table table-bordered">
+				  <thead>
+					<tr>
+					  <th>姓名</th>
+					  <th>处理时间</th>
+					  <th>备注</th>
+					  <th>状态</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td>13888888888</td>
+					  <td>￥1000.00</td>
+					  <td>官方</td>
+					  <td></td>
+					</tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-primary">提交</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/libs/jquery.ui/jquery-ui.min.js"></script>
+<script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-addon.js"></script>
+<script src="@static_path/libs/jquery.ui/jquery-ui-timepicker-zh-CN.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_path/bundle/agent-upgrade-check.js?v=@version"></script>
+</body>
+</html>

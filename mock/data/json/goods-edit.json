@@ -1,0 +1,22 @@
+{
+  "code": 10000,
+  "msg": "请求处理成功",
+  "data": {
+      "data":
+          {   "deliver_goods": "0",
+              "goods_cate": 1,
+              "goods_info": 3,
+              "goods_name": 1,
+              "goods_sort": 3,
+              "goods_status": 1,
+              "market_price": 3,
+              "num_company": 1,
+              "specifications_frist": 3,
+              "specifications_second": 1,
+              "stock_num": 3,
+              "weChat": 1,
+              "goods_img": ["http://192.168.8.143:3000/temp/images/book.jpg", "http://192.168.8.143:3000/temp/images/book.jpg"]
+          },
+      "total_count": 133
+  }
+}

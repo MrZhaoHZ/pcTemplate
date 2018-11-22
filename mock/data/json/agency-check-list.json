@@ -1,0 +1,35 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "data": {
+    "list": [
+      {
+        "id": 222,
+        "mostTop": 0,
+        "up": "一叶子微商",
+        "name": true,
+        "applicationLevel":"官方",
+        "authoMuch": "￥20000",
+        "payImg": "",
+        "personID": "1111111111111111111",
+        "personCard": "",
+        "status": "",
+        "operator": ""
+      },
+      {
+        "id": 222,
+        "mostTop": 0,
+        "up": "一叶子微商",
+        "name": true,
+        "applicationLevel":"官方",
+        "authoMuch": "￥20000",
+        "payImg": "",
+        "personID": "1111111111111111111",
+        "personCard": "",
+        "status": "",
+        "operator": ""
+      }
+    ],
+    "totalCount": 3
+  }
+}

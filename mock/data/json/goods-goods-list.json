@@ -1,0 +1,39 @@
+{
+  "code": 10000,
+  "message": "操作成功",
+  "success": true,
+  "data": {
+    "list": [
+      {
+      	"id": "sx001",
+        "name": "红色",
+        "pro_id": 1
+      },
+      {
+      	"id": "sx002",
+        "name": "huang色",
+        "pro_id": 2
+      },
+      {
+      	"id": "sx003",
+        "name": "绿色",
+        "pro_id": 3
+      },
+       {
+      	"id": "sx004",
+        "name": "懒色",
+        "pro_id": 4
+      },
+       {
+      	"id": "sx005",
+        "name": "黑色",
+        "pro_id": 5
+      },
+       {
+      	"id": "sx006",
+        "name": "红色",
+        "pro_id": 6
+      }
+    ]
+  }
+}

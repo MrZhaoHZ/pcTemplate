@@ -1,0 +1,94 @@
+{
+    "msg": "成功", 
+    "code": "10000", 
+    "success": true, 
+    "data": [
+        {
+            "spu_id": 103, 
+            "spu_name": "韩束", 
+            "item_sku_inventory_v_o_list": [
+                {
+                    "sku_id": 260, 
+                    "sku_sn": "H002", 
+                    "image_uri": "20171116161448528.jpg", 
+                    "deliver_type": 1, 
+                    "unit": "2", 
+                    "specs": "粉色,小,一叶子", 
+                    "total_inv": 444, 
+                    "withhold_inv": 0, 
+                    "usuble_inv": 444, 
+                    "reserve1": "粉色", 
+                    "reserve2": "小", 
+                    "reserve3": "一叶子", 
+                    "reserve5": "水"
+                }, 
+                {
+                    "sku_id": 270, 
+                    "sku_sn": "T001", 
+                    "image_uri": "20171116161448528.jpg", 
+                    "deliver_type": 1, 
+                    "unit": "2", 
+                    "specs": "粉色,小,一叶子", 
+                    "total_inv": 555, 
+                    "withhold_inv": 0, 
+                    "usuble_inv": 555, 
+                    "reserve1": "粉色", 
+                    "reserve2": "小", 
+                    "reserve3": "一叶子", 
+                    "reserve6": "杭州"
+                }, 
+                {
+                    "sku_id": 259, 
+                    "sku_sn": "H0001", 
+                    "image_uri": "20171116161448528.jpg", 
+                    "deliver_type": 1, 
+                    "unit": "2", 
+                    "specs": "粉色,小,一叶子", 
+                    "reserve1": "粉色", 
+                    "reserve2": "小", 
+                    "reserve3": "一叶子", 
+                    "reserve5": "水"
+                }, 
+                {
+                    "sku_id": 261, 
+                    "sku_sn": "HS001", 
+                    "image_uri": "20171116161448528.jpg", 
+                    "deliver_type": 1, 
+                    "unit": "2", 
+                    "specs": "粉色,小,一叶子", 
+                    "reserve1": "粉色", 
+                    "reserve2": "小", 
+                    "reserve3": "一叶子"
+                }
+            ]
+        }, 
+        {
+            "spu_id": 113, 
+            "spu_name": "红色小象2223", 
+            "item_sku_inventory_v_o_list": [
+                {
+                    "sku_id": 277, 
+                    "sku_sn": "xs002", 
+                    "image_uri": "20171117134612604.png", 
+                    "deliver_type": 1, 
+                    "unit": "1", 
+                    "specs": "大,红色小象,简约", 
+                    "reserve2": "大", 
+                    "reserve3": "红色小象", 
+                    "reserve4": "简约"
+                }, 
+                {
+                    "sku_id": 276, 
+                    "sku_sn": "xs0001", 
+                    "image_uri": "20171117134531289.jpg", 
+                    "deliver_type": 1, 
+                    "unit": "1", 
+                    "specs": "大,红色小象,简约", 
+                    "reserve2": "大", 
+                    "reserve3": "红色小象", 
+                    "reserve4": "简约"
+                }
+            ]
+        }
+    ]
+}

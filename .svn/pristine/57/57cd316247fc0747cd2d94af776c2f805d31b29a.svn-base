@@ -1,0 +1,63 @@
+.right-bar {
+	.tips {
+		margin-bottom: 20px;
+		padding: 10px;
+		text-align: left;
+		background: #FFFFCC;
+		
+		#tips-close {
+			float: right;
+			cursor: pointer;
+			font-size: 14px;
+		}
+	}
+	.nav-select .selected {
+		border-bottom: none;
+	}
+	.middle-condition {
+		margin: 5px 0;
+		.form-group {
+		    width: 130px;
+		}
+		.form-control {
+		    width: 100%;
+		}
+		.inline-btn {
+			width: auto;
+		}
+	}
+	tr th,tr td {
+		text-align: center;
+	}
+	.table {
+		margin-bottom: 5px;
+		.valid {
+			color: #008000;
+		}
+		.invalid {
+			color: #FF0000;
+		}
+	}
+	.img-info {
+		padding: 15px 5px 5px 5px;
+		width: 450px;
+		border: 1px dashed #FF0000;
+		overflow-y: hidden;
+		.item {
+			float: left;
+			margin-right: 15px;
+			img {
+				display: block;
+				margin-top: 5px;
+				width: 200px;
+				height: 100px;
+			}
+		}
+	}
+}
+.check-process {
+	span {
+		font-weight: bold;
+	}
+}
+

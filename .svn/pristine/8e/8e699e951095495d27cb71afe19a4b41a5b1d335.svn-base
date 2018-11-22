@@ -1,0 +1,46 @@
+.asterisk{
+	color: red;
+}
+.selected{
+	border-bottom: none;
+}
+.right-bar{
+	position: relative;
+	.content{
+		form{
+			margin-top: 200px;
+			padding-left: 250px;
+			.per_line{
+				margin: 30px 0;
+				.prompt{
+					float: left;
+					width: 136px;
+					margin-right: 10px;
+					display: inline-block;
+					.left{
+						text-align: right;
+						float: right;
+					}
+					.asterisk{
+						float: right;
+					}
+				}
+				.right{
+					width: 270px;
+				}
+			}
+		}
+		.foot{
+			position: absolute;
+			bottom: 16px;
+			left: 0;
+			height: 100px;
+		    background-color: #F2F2F2;
+		    padding: 34px 0;
+		    width: 94%;
+		    margin: 0 30px;
+		    text-align: center;
+		    box-sizing: border-box;
+		}
+	}
+}

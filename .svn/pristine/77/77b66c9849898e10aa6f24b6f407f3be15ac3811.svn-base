@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Note there is no responsive meta tag here -->
+	<link rel="icon" href="@static_path/favicon.ico">
+	<title>微商管理</title>
+	<link href="@static_path/libs/bootstrap-3.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="@static_path/css/common.css?v=@version" rel="stylesheet">
+	<link rel="stylesheet" href="@static_path/libs/jquery-pager-plugin-master/Pager.css" type="text/css">
+	<link rel="stylesheet" href="@static_path/libs/Font-Awesome-3.2.1/css/font-awesome.min.css" type="text/css">
+	<link href="@static_path/css/autho-book-setting.css?v=@version" rel="stylesheet">
+	<link href="@static_path/css/agent-detail.css?v=@version" rel="stylesheet">
+</head>
+<body>
+<input type="hidden" name="nav-active" value="03">
+<input type="hidden" name="menu-active" value="0301">
+<div class="container main-container">
+	<div class="left-bar" id="menu-container">
+	</div>
+	<div class="right-bar" id="right-bar-container">
+		<div class="btn-group nav-select">
+		  <a type="button" class="btn btn-default selected" href="role-management.html">代理商详情</a>
+		</div>
+		<br><br>
+		<div class="agency-detail" id="agency-detail">
+			<!-- <p>
+				<span>姓名：石磊</span>
+				<span>手机号码：13888888888</span>
+				<span>身份证信息：330000000000000000（点击查看图片）</span>
+			</p>
+			<p>
+				<span>微信号：WX32424543</span>
+				<span>地址：浙江省  杭州市 拱墅区 丰潭路380号银泰城E座8楼</span>
+			</p>
+			<p>
+				<span>等级：特约</span>
+				<span>直属人数：1</span>
+				<span>团队人数：3</span>
+				<span>余额：￥305.00</span>
+				<span>库存：0 箱 0 盒</span>
+			</p>
+			<p>
+				<span>授权编号：YYZ13944475（点击查看授权书）</span>
+				<span>打款凭证：（点击查看）</span>
+				<span>加入时间：2016-10-09 12:18:12</span>
+				<span>状态：正常</span>
+			</p>
+			<div class="btn-group">
+				<button type="button" class="btn btn-success limit-setting">限量设置</button>
+				<button type="button" class="btn btn-success">升级</button>
+				<button type="button" class="btn btn-success">降级</button>
+				<button type="button" class="btn btn-success" id="translation-btn">平移</button>
+				<button type="button" class="btn btn-success info-edit">修改信息</button>
+				<button type="button" class="btn btn-success" id="cancel-autho">取消授权</button>
+			</div> -->
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="limit-setting-modal">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">限量设置</h4>
+	  </div>
+	  <div class="modal-body" id="limit-setting-modal-body">
+<!-- 		<p>
+		是否开启：
+		<label class="radio-inline">
+		  <input type="radio" name="isOpen" value="1"> 是
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="isOpen" value="2"> 否
+		</label>
+		</p>
+		<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型：
+		<label class="radio-inline">
+		  <input type="radio" name="limit-type" value="1"> 团队
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="limit-type" value="2"> 个人
+		</label>
+		</p>
+		<div>
+			<table class="table table-bordered tab-content-center">
+			  <thead>
+				<tr>
+				  <th>隐藏商品</th>
+				  <th>商品编号</th>
+				  <th>商品标题</th>
+				  <th>发货方</th>
+				  <th>商品图片</th>
+				  <th>每日限量</th>
+				  <th>每周限量</th>
+				  <th>每月限量</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <td>
+				  	<label class="radio-inline">
+					  <input type="radio" name="isOpen" value="1"> 是
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="isOpen" value="2"> 否
+					</label>
+				  </td>
+				  <td>13888888888</td>
+				  <td>￥1000.00</td>
+				  <td>官方</td>
+				  <td><img src="@static_path/temp/images/book.jpg"></td>
+				  <td class="limit-num"><input type="text"></td>
+				  <td class="limit-num"><input type="text"></td>
+				  <td class="limit-num"><input type="text"></td>
+				</tr>
+			  </tbody>
+			</table>
+		</div> -->
+	  </div>
+	  <div class="modal-footer">
+		<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+		<button type="button" class="btn btn-primary" id="save-limit-setting">保存设置</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="agency-info-edit-modal">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">代理商信息修改</h4>
+	  </div>
+	  <div class="modal-body">
+		<div>
+			<table class="table table-bordered" id="agent-detail-modal-body">
+			  <!-- <tbody>
+				<tr>
+				  <td>
+				  	姓名：<input type="text">
+				  </td>
+				  <td>
+					手机号：<input type="text">
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+				  	等级：<input type="text">
+				  </td>
+				  <td>
+					身份证：<input type="text">
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+				  	昵称：<input type="text">
+				  </td>
+				  <td>
+					微信号：<input type="text">
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+				  	省份：
+				  	<select class="form-control">
+					  <option>所有区县</option>
+					</select>
+				  </td>
+				  <td>
+					&nbsp;&nbsp;&nbsp;&nbsp;市：
+					<select class="form-control">
+					  <option>所有区县</option>
+					</select>
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+				  	&nbsp;&nbsp;&nbsp;&nbsp;区：
+				  	<select class="form-control">
+					  <option>所有区县</option>
+					</select>
+				  </td>
+				  <td>
+					地址：<input type="text">
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+				  	邮编：<input type="text">
+				  </td>
+				  <td>
+					备注：<input type="text">
+				  </td>
+				</tr>
+			  </tbody> -->
+			</table>
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+		<button type="button" class="btn btn-primary" id="save-info-setting">保存设置</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="translation-modal">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">代理商-平移</h4>
+	  </div>
+	  <div class="modal-body">
+		<!-- <p>
+		是否开启:
+		<label class="radio-inline">
+		  <input type="radio" name="isOpen" value="1"> 是
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="isOpen" value="2"> 否
+		</label>
+		</p>
+		<p>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型:
+		<label class="radio-inline">
+		  <input type="radio" name="limit-type" value="1"> 团队
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="limit-type" value="2"> 个人
+		</label>
+		</p> -->
+		<div>
+			<!-- <table class="table table-bordered">
+			  <thead>
+				<tr>
+				  <th>选择</th>
+				  <th>姓名</th>
+				  <th>等级</th>
+				  <th>手机</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table> -->
+			<!-- <table class="table table-bordered tab-content-center">
+			  <thead>
+				<tr>
+				  <th>选择</th>
+				  <th>姓名</th>
+				  <th>等级</th>
+				  <th>手机</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			  		<td colspan="4">
+				  		<div class="form-inline" style="text-align: left;">
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="name" placeholder="姓名">
+						  </div>
+						  <div class="form-group">
+						    <input type="email" class="form-control" id="phone" placeholder="手机">
+						  </div>
+						  <button class="btn btn-default">查询</button>
+						</div>
+					</td>
+			  	</tr>
+				<tr>
+				  <td>
+				  	<input type="radio" name="isMove" value="2">
+				  </td>
+				  <td>某某</td>
+				  <td>董事</td>
+				  <td>13888888888</td>
+				</tr>
+				<tr>
+				  <td>
+				  	<input type="radio" name="isMove" value="2">
+				  </td>
+				  <td>某某</td>
+				  <td>董事</td>
+				  <td>13888888888</td>
+				</tr>
+				<tr>
+				  <td>
+				  	<input type="radio" name="isMove" value="2">
+				  </td>
+				  <td>某某</td>
+				  <td>董事</td>
+				  <td>13888888888</td>
+				</tr>
+			  </tbody>
+			</table> -->
+		</div>
+	  </div>
+	  <div class="modal-footer">
+		<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+		<button type="button" class="btn btn-primary" id="save-translation-btn">保存设置</button>
+	  </div>
+	</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="img-select-modal-container"></div>
+<script src="@static_path/libs/jquery/jquery-1.10.2.js"></script>
+<script src="@static_path/libs/webuploader-0.1.5/webuploader.min.js"></script>
+<script src="@static_path/libs/bootstrap-3.3.0/dist/js/bootstrap.min.js"></script>
+<script src="@static_path/libs/doT-master/doT.min.js"></script>
+<script src="@static_path/libs/jquery-pager-plugin-master/jquery.pager.js"></script>
+<script src="@static_path/libs/layer/layer.js"></script>
+<script src="@static_path/bundle/main.js?v=@version"></script>
+<script src="@static_path/bundle/agent-detail.js?v=@version"></script>
+</body>
+</html>
